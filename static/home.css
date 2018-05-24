@@ -1,0 +1,56 @@
+.Home main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Home p {
+  text-indent: 0;
+}
+
+.Home .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 2.5em;
+  height: 2.5em;
+  padding: 1em;
+
+  user-select: none;
+
+  color: var(--color-background);
+  border: 2px solid var(--color-background);
+  border-radius: 10em;
+  background-color: var(--color-foreground);
+  box-shadow: 0 0 0 2px var(--color-foreground);
+
+  font-size: 2rem;
+}
+
+.Home .author {
+  text-align: center;
+
+  font-size: 1.25rem;
+  font-variant: small-caps;
+}
+
+.Home .profession {
+  text-align: center;
+}
+
+.Home .sub-navigation ul {
+  display: flex;
+  flex-direction: row;
+
+  padding: var(--spacing-default) var(--spacing-large);
+
+  list-style: none;
+
+  border-top: 1px solid currentColor;
+}
+
+.Home .sub-navigation ul > * + * {
+  margin-left: var(--spacing-default);
+}

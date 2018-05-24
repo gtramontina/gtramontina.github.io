@@ -1,0 +1,441 @@
+@charset "utf-8";
+
+/* Reset -------------------------------------------------------------------- */
+
+html,
+body,
+p,
+figure,
+blockquote,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre {
+  margin: 0;
+  padding: 0;
+
+  font-weight: normal;
+}
+
+ol,
+ul {
+  margin: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+/* Root --------------------------------------------------------------------- */
+
+:root {
+  --color-background: rgb(255, 255, 255);
+  --color-foreground: rgb(51, 51, 51);
+  --color-primary: rgb(200, 0, 0);
+  --color-secondary: rgb(255, 229, 0);
+  --font-family-monospace: "Computer Modern Typewriter", monospace;
+  --font-family-serif: "Computer Modern Serif", serif;
+  --font-size: 15pt;
+  --line-height: 1.75;
+  --max-width: 800px;
+  --spacing-xsmall: 0.25rem;
+  --spacing-small: 0.5rem;
+  --spacing-default: 1rem;
+  --spacing-large: 2rem;
+  --spacing-xlarge: 5rem;
+
+  hyphens: auto;
+
+  color: var(--color-foreground);
+  background-color: var(--color-background);
+
+  font-family: var(--font-family-serif);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+}
+
+::-moz-selection {
+  color: var(--color-foreground);
+  background-color: var(--color-secondary);
+}
+
+::selection {
+  color: var(--color-foreground);
+  background-color: var(--color-secondary);
+}
+
+@media (max-width: 600px) {
+  :root {
+    --font-size: 12pt;
+    --line-height: 1.25;
+  }
+}
+
+@media (max-width: 400px) {
+  :root {
+    --font-size: 11pt;
+    --line-height: 1.25;
+  }
+}
+
+/* Body --------------------------------------------------------------------- */
+
+body {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: var(--max-width);
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+body > * + * {
+  margin-top: var(--spacing-default);
+}
+
+/* Main --------------------------------------------------------------------- */
+
+main {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  flex-grow: 1;
+
+  padding: 0 var(--spacing-default);
+}
+
+main > * + * {
+  margin-top: var(--spacing-default);
+}
+
+/* Sections ----------------------------------------------------------------- */
+
+section {
+  display: flex;
+  flex-direction: column;
+}
+
+section > * + * {
+  margin-top: var(--spacing-default);
+}
+
+/* Headings ----------------------------------------------------------------- */
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+h5 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+h6 {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Paragraph ---------------------------------------------------------------- */
+
+p {
+  text-indent: 2em;
+}
+
+/* Links -------------------------------------------------------------------- */
+
+a,
+a:visited {
+  text-decoration: none;
+
+  color: var(--color-primary);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a[href^="#"] {
+  color: currentColor;
+}
+
+/* Pre ---------------------------------------------------------------------- */
+
+pre {
+  overflow: auto;
+
+  font-family: var(--font-family-monospace);
+}
+
+/* Code --------------------------------------------------------------------- */
+
+code {
+  font-family: var(--font-family-monospace);
+}
+
+/* Horizontal Line ---------------------------------------------------------- */
+
+hr {
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+
+  border: none;
+  border-top: 1px solid currentColor;
+}
+
+/* Block Quotes ------------------------------------------------------------- */
+
+blockquote {
+  padding-left: var(--spacing-xlarge);
+
+  font-style: italic;
+}
+
+/* Image ---------------------------------------------------------------------*/
+
+img {
+  max-width: 100%;
+}
+
+/* Figure Caption ------------------------------------------------------------*/
+
+figcaption {
+  text-align: center;
+
+  font-size: 0.75em;
+  font-style: italic;
+}
+
+/* Tables --------------------------------------------------------------------*/
+
+table {
+  width: 100%;
+
+  table-layout: fixed;
+
+  border-collapse: collapse;
+  border-top: 3px double currentColor;
+  border-bottom: 3px double currentColor;
+
+  font-size: 0.75em;
+}
+
+thead tr {
+  border-bottom: 1px solid currentColor;
+
+  font-weight: bold;
+}
+
+th,
+td {
+  padding: var(--spacing-xsmall) var(--spacing-small);
+}
+
+/* Nav Header --------------------------------------------------------------- */
+
+#nav-header {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+
+  padding-right: var(--spacing-default);
+
+  border-bottom: 1px solid currentColor;
+}
+
+#nav-header .nav-brand {
+  padding: var(--spacing-small);
+
+  text-decoration: none;
+
+  color: var(--color-background);
+  background-color: var(--color-foreground);
+
+  font-variant: small-caps;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: row;
+
+  padding: 0;
+
+  list-style: none;
+}
+
+.nav-links > * + * {
+  margin-left: var(--spacing-default);
+}
+
+/* Cover -------------------------------------------------------------------- */
+
+body > header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  height: 75vh;
+}
+
+body > header > * + * {
+  margin-top: var(--spacing-default);
+}
+
+.cover-art {
+  max-height: 30vh;
+}
+
+.title {
+  font-size: 2.5rem;
+}
+
+.author {
+  display: block;
+
+  text-indent: 0;
+
+  font-variant: small-caps;
+}
+
+.date {
+  text-indent: 0;
+}
+
+.subtitle {
+  padding: var(--spacing-default) var(--spacing-default) 0
+    var(--spacing-default);
+
+  text-indent: 0;
+
+  border-top: 1px solid currentColor;
+
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+/* TOC ---------------------------------------------------------------------- */
+
+#TOC {
+  /* display: none; */
+}
+
+/* Footnotes ---------------------------------------------------------------- */
+
+.footnote-ref > sup:before {
+  content: "[";
+}
+
+.footnote-ref > sup:after {
+  content: "]";
+}
+
+.footnotes > hr {
+  display: none;
+}
+
+.footnotes p {
+  text-indent: 0;
+}
+
+.footnotes {
+  padding-top: var(--spacing-default);
+
+  border-top: 1px solid currentColor;
+
+  font-size: 0.75rem;
+
+  column-count: 2;
+}
+
+/* Nav Footer --------------------------------------------------------------- */
+
+#nav-footer {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-end;
+
+  padding: var(--spacing-large) var(--spacing-default);
+
+  border-top: 1px solid currentColor;
+
+  font-size: 0.75rem;
+}
+
+#nav-footer > * + * {
+  margin-left: var(--spacing-small);
+}
+
+.social-media {
+  width: 1.25rem;
+  height: 1.25rem;
+
+  transition: filter 0.25s;
+
+  filter: grayscale(1);
+}
+
+.social-media:hover {
+  filter: none;
+}
+
+/* Annotations -------------------------------------------------------------- */
+
+.hypothesis-annotations {
+  display: flex;
+  overflow: hidden;
+  flex-direction: row-reverse;
+  flex-grow: 1;
+
+  padding: 0 var(--spacing-default);
+}
+
+[data-hypothesis-trigger] {
+  cursor: pointer;
+}
+
+[data-hypothesis-trigger]:after {
+  content: '»';
+}
+
+[data-hypothesis-annotation-count]:not(:empty):before {
+  content: '(';
+}
+
+[data-hypothesis-annotation-count]:not(:empty):after {
+  content: ')';
+}
+
+/* Syntax Highlighting (overrides) ########################################## */
+
+div.sourceCode {
+  margin: inherit;
+}
+
+code.sourceCode {
+  position: inherit;
+}
