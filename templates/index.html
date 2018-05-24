@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="$lang$" xml:lang="$lang$"$if(dir)$ dir="$dir$"$endif$>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="$lang$" xml:lang="$lang$"$if(dir)$ dir="$dir$"$endif$$if(draft)$ class="draft"$endif$>
 <head>
+$if(draft)$
+  <meta name="robots" content="noindex">
+$endif$
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
@@ -28,6 +31,9 @@ $endif$
 $for(css)$
   <link rel="stylesheet" href="$css$">
 $endfor$
+$if(draft)$
+  <link rel="stylesheet" href="/static/draft.css">
+$endif$
 $if(math)$
   $math$
 $endif$
