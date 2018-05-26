@@ -32,6 +32,7 @@ What follows is a list of software and resources I used to put this website toge
 | SuperTinyIcons | <https://github.com/edent/SuperTinyIcons> |
 | Computer Modern LaTeX Typeface | <https://en.wikipedia.org/wiki/Computer_Modern><br/><https://github.com/dreampulse/computer-modern-web-font> |
 | Hypotes.is | <https://hypothes.is/> |
+| Humans.txt | <http://http://humanstxt.org><br/><https://gist.github.com/stela5/1341927>
 | Git | <https://git-scm.com/> |
 | RawGit CDN | <https://rawgit.com/> |
 | GitHub | <https://github.com/> |
