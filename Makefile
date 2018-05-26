@@ -40,7 +40,8 @@ pandoc-options := \
 	--include-before-body $(templates)/header.html \
 	--include-after-body $(templates)/footer.html \
 	--highlight-style monochrome \
-	--css https://cdn.rawgit.com/dreampulse/computer-modern-web-font/master/fonts.css \
+	--css //cdn.rawgit.com/dreampulse/computer-modern-web-font/69db20e0/font/Typewriter/cmun-typewriter.css \
+	--css //cdn.rawgit.com/dreampulse/computer-modern-web-font/69db20e0/font/Serif/cmun-serif.css \
 	--css /$(static)/stylesheet.css \
 	--strip-comments \
 	--section-divs \

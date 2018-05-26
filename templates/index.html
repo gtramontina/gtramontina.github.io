@@ -34,6 +34,9 @@ $highlighting-css$
 $endif$
   <link rel="icon" href="/static/favicon.ico" type="image/x-icon" />
 $for(css)$
+  <link rel="preload" href="$css$" as="style">
+$endfor$
+$for(css)$
   <link rel="stylesheet" href="$css$">
 $endfor$
 $if(draft)$
