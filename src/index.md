@@ -1,7 +1,7 @@
 ---
 pagetitle: Home
 header-includes:
-  - '<link rel="stylesheet" href="/static/home.css">'
+  - '<link rel="stylesheet" href="/home.css">'
 ---
 
 ::: logo

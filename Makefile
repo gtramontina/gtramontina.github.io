@@ -21,7 +21,7 @@ static := static
 
 md-files := $(shell find $(input) -type f -name '*.md')
 html-files := $(patsubst $(input)/%.md, $(output)/%.html, $(md-files))
-static-files := $(addprefix $(output)/,$(shell find $(static) -type f))
+static-files := $(patsubst $(static)/%, $(output)/%, $(shell find $(static) -type f))
 
 # ---
 
@@ -42,7 +42,7 @@ pandoc-options := \
 	--highlight-style monochrome \
 	--css //cdn.rawgit.com/dreampulse/computer-modern-web-font/69db20e0/font/Typewriter/cmun-typewriter.css \
 	--css //cdn.rawgit.com/dreampulse/computer-modern-web-font/69db20e0/font/Serif/cmun-serif.css \
-	--css /$(static)/stylesheet.css \
+	--css /stylesheet.css \
 	--strip-comments \
 	--section-divs \
 	--from markdown+smart \
@@ -66,7 +66,7 @@ $(TMPDIR)image-pandoc.log:
 $(output)/%.html: $(input)/%.md $(dependencies) | $(TMPDIR)image-pandoc.log $$(@D)/.f
 	@cat $< | $(pandoc) > $@
 
-$(output)/$(static)/%: $(static)/% | $$(@D)/.f
+$(output)/%: $(static)/% | $$(@D)/.f
 	@cp $< $@
 
 # ---
