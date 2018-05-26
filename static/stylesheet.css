@@ -254,8 +254,9 @@ td {
 }
 
 /* Nav Header --------------------------------------------------------------- */
-
 #nav-header {
+  position: relative;
+
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -288,6 +289,29 @@ td {
 
 .nav-links > * + * {
   margin-left: var(--spacing-default);
+}
+
+[rel="content"] {
+  position: absolute;
+  left: 3rem;
+
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+
+  width: 1px;
+  height: 1px;
+  margin: 0;
+
+  font-size: 0.75em;
+}
+
+[rel="content"]:focus {
+  z-index: 1;
+
+  clip: auto;
+
+  width: auto;
+  height: auto;
 }
 
 /* Cover -------------------------------------------------------------------- */
