@@ -23,7 +23,7 @@ Anything I publish here is [CC BY-NC-SA](https://creativecommons.org/licenses/by
 
 ## Software & Resources
 
-What follows is a list of software and resources I used to put this website together. You can find the source code of this website [here](https://github.com/gtramontina/gtramontina.github.io/).
+What follows is a list of software and resources I used to put this website together. You can find the source code of this website [on GitHub](https://github.com/gtramontina/gtramontina.github.io/).
 
 | Software | Resource |
 | ---- | ------- |
