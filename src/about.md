@@ -8,7 +8,7 @@ Hello there! Welcome to my little corner of the web. My name is <span lang="pt-B
 
 ## Social Media
 
-I'm not an avid user of social media. In fact, I try to avoid it as much as I can. There are, though, a few that I end up using more than I'd like to. Here's how you can find me (in rough order by activity):
+I'm not an avid user of social media. In fact, I try to avoid it as much as I can. There are, though, a few that I end up using more than I'd like to. Here's how you can find me (in rough order of activity):
 
 * <https://github.com/gtramontina>
 * <https://twitter.com/@gtramontina>
