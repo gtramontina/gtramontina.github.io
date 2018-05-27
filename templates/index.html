@@ -24,7 +24,7 @@ $endif$
 $if(keywords)$
   <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" />
 $endif$
-  <title>$if(title-prefix)$$title-prefix$ | $endif$$pagetitle$</title>
+  <title>$pagetitle$$if(title-prefix)$ | $title-prefix$$endif$</title>
 $if(highlighting-css)$
   <style type="text/css">
     span.smallcaps{font-variant: small-caps;}
