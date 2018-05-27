@@ -5,6 +5,8 @@ header-includes:
   - '<link rel="stylesheet" href="/home.css">'
 ---
 
+::: home
+
 ::: logo
 GT
 :::
@@ -21,4 +23,6 @@ Software Developer
 ::: sub-navigation
 * [Posts](/posts)
 * [About](/about.html)
+:::
+
 :::

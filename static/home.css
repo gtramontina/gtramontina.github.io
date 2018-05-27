@@ -1,15 +1,20 @@
-.Home main {
+.home {
   display: flex;
   align-items: center;
   flex-direction: column;
+  flex-grow: 1;
   justify-content: center;
 }
 
-.Home p {
+.home > * + * {
+  margin-top: var(--spacing-default);
+}
+
+.home p {
   text-indent: 0;
 }
 
-.Home .logo {
+.home .logo {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,18 +34,18 @@
   font-size: 2rem;
 }
 
-.Home .author {
+.home .author {
   text-align: center;
 
   font-size: 1.25rem;
   font-variant: small-caps;
 }
 
-.Home .profession {
+.home .profession {
   text-align: center;
 }
 
-.Home .sub-navigation ul {
+.home .sub-navigation ul {
   display: flex;
   flex-direction: row;
 
@@ -51,6 +56,6 @@
   border-top: 1px solid currentColor;
 }
 
-.Home .sub-navigation ul > * + * {
+.home .sub-navigation ul > * + * {
   margin-left: var(--spacing-default);
 }
