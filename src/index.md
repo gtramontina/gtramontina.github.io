@@ -1,5 +1,6 @@
 ---
 pagetitle: Home
+description: "A software development blog: articles, book reviews, ramblings…"
 header-includes:
   - '<link rel="stylesheet" href="/home.css">'
 ---

@@ -1,5 +1,6 @@
 ---
 pagetitle: About
+description: "About myself and this website"
 ---
 
 # About me
