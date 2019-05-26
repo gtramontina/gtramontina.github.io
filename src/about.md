@@ -5,7 +5,7 @@ description: "About myself and this website"
 
 # About me
 
-Hello there! Welcome to my little corner of the web. My name is <span lang="pt-BR">Guilherme Johansson Tramontina</span>. I develop software for living. I'm currently working as a consultant with [Pragmateam](https://pragma.team), in the beautiful [Sydney, Australia](https://en.wikipedia.org/wiki/Sydney).
+Hello there! Welcome to my little corner of the web. My name is <span lang="pt-BR">Guilherme Johansson Tramontina</span>. I develop software for a living. I'm currently working as a consultant with [Pragmateam](https://pragma.team), in the beautiful [Sydney, Australia](https://en.wikipedia.org/wiki/Sydney).
 
 ## Social Media
 
