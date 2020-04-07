@@ -1,0 +1,19 @@
+{{if not .Page.Draft}}
+<aside class="hypothesis-annotations" style="text-align: right;">
+	<a data-hypothesis-trigger style="cursor: pointer;">
+		Annotations/Comments (<span data-hypothesis-annotation-count>…</span>)
+		&#x2192;
+	</a>
+
+	<script type="application/json" class="js-hypothesis-config">
+		{
+			"theme": "clean",
+			"branding": {
+				"selectionFontFamily": "Georgia, 'Times New Roman', Times, serif",
+				"annotationFontFamily": "Georgia, 'Times New Roman', Times, serif"
+			}
+		}
+	</script>
+	<script src="//hypothes.is/embed.js" async></script>
+</aside>
+{{end}}

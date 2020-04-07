@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="{{.Site.LanguageCode | default "en-us"}}">
+
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	{{partial "opengraph" .}}
+	{{partial "twitter" .}}
+	<title>{{with .Title}}{{.}} &bull; {{end}}gtramontina</title>
+	{{with .Site.Params.description}}<meta name="description" content="{{.}}">{{end}}
+	{{with .Site.Params.author}}<meta name="author" content="{{.}}">{{end}}
+	<link rel="stylesheet" href="{{"style.css" | relURL}}">
+	<link type="text/plain" rel="author" href="{{"humans.txt" | relURL}}" />
+	{{if .Page.Draft}}<link rel="stylesheet" href="{{"draft.css" | relURL}}">{{end}}
+	{{with .OutputFormats.Get "RSS" -}}{{printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Title | safeHTML}}{{- end}}
+</head>
+
+<body>
+	{{partial "header" .}}
+	<main>
+		{{block "main" .}}{{end}}
+	</main>
+	{{partial "footer" .}}
+</body>
+
+</html>

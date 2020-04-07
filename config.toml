@@ -1,0 +1,15 @@
+baseURL = "https://gtramontina.com/"
+languageCode = "en-us"
+title = "gtramontina"
+enableEmoji = true
+uglyURLs = true
+enableGitInfo = true
+disableKinds = ["taxonomy", "taxonomyTerm"]
+
+[params]
+  author = "Guilherme J. Tramontina"
+  description = "Software Development Ramblings"
+  github_repository = "https://github.com/gtramontina/gtramontina.github.io"
+
+[markup.goldmark.renderer]
+  unsafe= true

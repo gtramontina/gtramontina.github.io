@@ -1,0 +1,21 @@
+version: "3"
+services:
+  build:
+    image: klakegg/hugo:0.68.3-ext-alpine
+    volumes:
+      - .:/src
+      - ./output:/target
+
+  shell:
+    image: klakegg/hugo:0.68.3-ext-alpine
+    command: shell
+    volumes:
+      - .:/src
+
+  server:
+    image: klakegg/hugo:0.68.3-ext-alpine
+    command: server -D
+    volumes:
+      - .:/src
+    ports:
+      - 1313:1313
