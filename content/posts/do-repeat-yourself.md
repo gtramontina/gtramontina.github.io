@@ -1,5 +1,6 @@
 ---
 title: "Do Repeat Yourself"
+description: "Understanding the DRY principle"
 date: 2020-02-23T10:27:57Z
 ---
 
