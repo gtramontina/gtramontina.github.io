@@ -2,7 +2,7 @@
 <article>
 	<header>
 		{{- if and .Site.Params.github_repository .File -}}<a
-			href="{{.Site.Params.github_repository}}/edit/master/content/{{.File.Path}}"
+			href="{{.Site.Params.github_repository}}/edit/source/content/{{.File.Path}}"
 			title="Edit on GitHub"
 			>{{.File.Path}}</a
 		>{{- end -}}
