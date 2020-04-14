@@ -4,6 +4,7 @@
 	GitHub: https://github.com/gtramontina
 	Twitter: https://twitter.com/@gtramontina
 	LinkedIn: https://linkedin.com/in/gtramontina
+	StackOverflow: https://stackoverflow.com/users/3130625/gtramontina
 	Mastodon: https://mastodon.social/@gtramontina
 
 /* THANKS */
@@ -13,5 +14,5 @@
 
 /* SITE */
 
-	Please visit: https://gtramontina.com/about.html#software-resources
+	Please visit: https://gtramontina.com/about.html#software--resources
 	I'm keeping track of all software and resources I used there.

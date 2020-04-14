@@ -1,23 +1,14 @@
-html.draft:before {
-  position: sticky;
-  top: 0;
+body:before {
+	font-size: 5em;
 
-  display: block;
+	position: fixed;
+	z-index: -1;
+	top: 50%;
+	left: 50%;
 
-  width: 100vw;
+	content: "D R A F T";
+	transform: translate(-50%, -50%) rotate(-25deg);
+	white-space: nowrap;
 
-  content: "DRAFT";
-  text-align: center;
-  white-space: nowrap;
-  letter-spacing: 2ch;
-  text-transform: uppercase;
-
-  color: var(--color-background);
-  background-color: var(--color-primary);
-  box-shadow: 0 0px 1px rgba(0, 0, 0, 0.5);
-  text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.75),
-    1px 1px 1px rgba(0, 0, 0, 0.75);
-
-  font-family: var(--font-family-monospace);
-  font-size: 1rem;
+	opacity: 0.1;
 }
