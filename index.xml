@@ -1,34 +1,37 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>gtramontina</title>
-    <link>https://gtramontina.com/</link>
-    <description>Recent content on gtramontina</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="https://gtramontina.com/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Do Repeat Yourself</title>
-      <link>https://gtramontina.com/posts/do-repeat-yourself.html</link>
-      <pubDate>Sun, 23 Feb 2020 10:27:57 +0000</pubDate>
-      
-      <guid>https://gtramontina.com/posts/do-repeat-yourself.html</guid>
-      <description>Do Repeat Yourself One of the first software development principles programmers learn is the DRY principle: Don&amp;rsquo;t Repeat Yourself. One can think of it as being quite self-explanatory, without requiring to go beyond &amp;ldquo;remove duplication&amp;rdquo; to claim understanding of it. Is that enough, though? What is duplication, anyway?
+	<channel>
+		<title>gtramontina</title>
+		<link>https://gtramontina.com/</link>
+		<description>Recent content on gtramontina</description>
+		<language>en-us</language>
+		
+		
+		
+		
+		
+		<atom:link href="https://gtramontina.com/index.xml" rel="self" type="application/rss+xml" />
+		
+		
+		<item>
+			<title>Do Repeat Yourself</title>
+			<link>https://gtramontina.com/posts/do-repeat-yourself.html</link>
+			<pubDate>Sun, 23 Feb 2020 10:27:57 +0000</pubDate>
+			
+			<guid>https://gtramontina.com/posts/do-repeat-yourself.html</guid>
+			<description>Do Repeat Yourself One of the first software development principles programmers learn is the DRY principle: Don&amp;rsquo;t Repeat Yourself. One can think of it as being quite self-explanatory, without requiring to go beyond &amp;ldquo;remove duplication&amp;rdquo; to claim understanding of it. Is that enough, though? What is duplication, anyway?
 Historia Let&amp;rsquo;s start from the beginning. Andrew Hunt and David Thomas first introduced this principle in their 1999 The Pragmatic Programmer: From Journeyman to Master book (an updated 20th Anniversary Edition is also available).</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://gtramontina.com/about.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://gtramontina.com/about.html</guid>
-      <description>About me Hello there! Welcome to my little corner of this vast world wide web. My name is Guilherme Johansson Tramontina. I develop software for a living. I&amp;rsquo;m currently working as a software developer at InDebted, in the beautiful Sydney, Australia.
+		</item>
+		
+		<item>
+			<title>About</title>
+			<link>https://gtramontina.com/about.html</link>
+			
+			
+			<guid>https://gtramontina.com/about.html</guid>
+			<description>About me Hello there! Welcome to my little corner of this vast world wide web. My name is Guilherme Johansson Tramontina. I develop software for a living. I&amp;rsquo;m currently working as a software developer at InDebted, in the beautiful Sydney, Australia.
 Social Media I&amp;rsquo;m not an avid user of social media. In fact, I try to avoid it as much as I can. There are, though, a few that I end up using more than I&amp;rsquo;d like to admit.</description>
-    </item>
-    
-  </channel>
+		</item>
+		
+	</channel>
 </rss>
