@@ -3,5 +3,14 @@
 	<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode"
 		>BY-NC-SA</a
 	>
-	licensed unless otherwise stated.
+	licensed unless otherwise stated.<br />
+	{{with .OutputFormats.Get "RSS" -}}{{printf `<a
+		rel="%s"
+		type="%s"
+		href="%s"
+		title="Feed: %s"
+		><img
+			width="16"
+			src="https://upload.wikimedia.org/wikipedia/en/4/43/Feed-icon.svg" /></a
+	>` .Rel .MediaType.Type .RelPermalink $.Title | safeHTML}}{{- end}}
 </footer>
