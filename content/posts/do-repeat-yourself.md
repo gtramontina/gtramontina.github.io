@@ -34,7 +34,7 @@ His conclusion, in this specific case, was: yes. The solution arose from paying 
 
 - How often would this piece of software change compared to the other?
 - What are the reasons for changing one or the other?
-- Who'd request such changes? The design team, the financial team?
+- Who'd request such changes? The design team, the finances team?
 - What purpose does this code serve?
 - Which part of the architecture does it belong?
 
