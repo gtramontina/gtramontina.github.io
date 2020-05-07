@@ -18,7 +18,7 @@ I'm not an avid user of social media. In fact, I try to avoid it as much as I ca
 
 # This website
 
-The ideas and opinions expressed here are my own. In fact, they are the result of an amalgamation of things. Studying, reading, listening to podcasts, attending conferences and meetups, hallway conversations, life. So I’m thankful to those who I crossed paths with for helping shape my ideas and opinions. Thank you! That said, it doesn't mean they can't chance. Let's chat!
+The ideas and opinions expressed here are my own. In fact, they are the result of an amalgamation of things. Studying, reading, listening to podcasts, attending conferences and meetups, hallway conversations, life. So I’m thankful to those who I crossed paths with for helping shape my ideas and opinions. Thank you! That said, it doesn't mean they can't change. Let's chat!
 
 Everything I publish here is CC [BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode) licensed unless otherwise stated. I'll do my best to attribute all external resources I use. If I fail to do so or if any attribution is wrong, please reach out and let me know.
 
