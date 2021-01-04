@@ -1,0 +1,18 @@
+/* TEAM */
+
+	Name: Guilherme Johansson Tramontina
+	GitHub: https://github.com/gtramontina
+	Twitter: https://twitter.com/@gtramontina
+	LinkedIn: https://linkedin.com/in/gtramontina
+	StackOverflow: https://stackoverflow.com/users/3130625/gtramontina
+	Mastodon: https://mastodon.social/@gtramontina
+
+/* THANKS */
+
+	I'll do my best to keep this section updated with the names of those who
+	contribute reviewing any of my publishings.
+
+/* SITE */
+
+	Please visit: https://gtramontina.com/about.html#software--resources
+	I'm keeping track of all software and resources I used there.

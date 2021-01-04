@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta property="og:title" content="Do Repeat Yourself" />
+
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-02-23">
+
+<meta property="og:description" content="Understanding the DRY principle" />
+<meta property="og:url" content="https://gtramontina.com/posts/do-repeat-yourself.html" />
+<meta property="og:site_name" content="gtramontina" />
+
+
+	<meta property="twitter:description" content="Understanding the DRY principle" />
+<meta property="twitter:title" content="Do Repeat Yourself" />
+
+
+	<title>Do Repeat Yourself &bull; gtramontina</title>
+	<meta name="description" content="Software Development Ramblings">
+	<meta name="author" content="Guilherme J. Tramontina">
+	<link rel="stylesheet" href="/style.css">
+	<link type="text/plain" rel="author" href="/humans.txt" />
+	
+	
+</head>
+
+<body>
+	<header>
+	<span class="home"><a href="/" rel="home">~/</a></span>
+	<a href="/posts.html" rel="posts">Posts</a>
+	<a href="/about.html" rel="about">About</a>
+</header>
+
+	<main>
+		
+<article>
+	<header><a
+			href="https://github.com/gtramontina/gtramontina.github.io/edit/source/content/posts/do-repeat-yourself.md"
+			title="Edit on GitHub"
+			>posts/do-repeat-yourself.md</a
+		><div class="timestamps">
+			<time datetime="2020-23-02" title="Published: February 23, 2020">Feb 23, 2020</time>
+			(<time datetime="2021-04-01" title="Last modified: January 4, 2021">Jan 4, 2021</time>)
+		</div>
+	</header>
+
+	<section>
+		<h1 id="do-repeat-yourself">Do Repeat Yourself&nbsp;<a class="heading-anchor" href="#do-repeat-yourself">&#x0023;</a></h1>
+<p>One of the first software development principles programmers learn is the DRY principle: Don&rsquo;t Repeat Yourself. One can think of it as being quite self-explanatory, without requiring to go beyond &ldquo;remove duplication&rdquo; to claim understanding of it. Is that enough, though? What is duplication, anyway?</p>
+<h2 id="historia">Historia&nbsp;<a class="heading-anchor" href="#historia">&#x0023;</a></h2>
+<p>Let&rsquo;s start from the beginning. <a href="https://twitter.com/pragmaticandy">Andrew Hunt</a> and <a href="https://twitter.com/pragdave">David Thomas</a> first introduced this principle in their 1999 <a href="https://pragprog.com/book/tpp/the-pragmatic-programmer"><em>The Pragmatic Programmer: From Journeyman to Master</em></a> book (an updated <a href="https://pragprog.com/titles/tpp20">20th Anniversary Edition</a> is also available). A must-read, if you ask me. It states the following:</p>
+<blockquote>
+<p>Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.</p>
+</blockquote>
+<p>This tip, number 11, is given amidst a section named <em>The Evils of Duplication</em>, where the authors explain the dangers of having duplicated knowledge within a system. The DRY principle is not as much about <em>code</em> as it is about <em>knowledge</em>. Any kind of knowledge, but especially domain knowledge. Sure, this knowledge will eventually become code. But the point is that there should be only one representation of it in code.</p>
+<h2 id="the-confusion">The Confusion&nbsp;<a class="heading-anchor" href="#the-confusion">&#x0023;</a></h2>
+<p>It&rsquo;s very easy for us, developers, especially beginners and <a href="https://daedtech.com/how-developers-stop-learning-rise-of-the-expert-beginner/">expert-beginners</a>, to misinterpret and obsess over it. We can go hours removing every bit of duplicated code, applying all the design patterns we know, thinking how smart we are, until there is not a single duplicated word left. This is very dangerous! In fact, we should be extra careful when refactoring to abstractions. <a href="https://www.sandimetz.com/">Sandi Metz</a>, in <a href="https://www.sandimetz.com/blog/2016/1/20/the-wrong-abstraction"><em>The Wrong Abstraction</em></a>, summarizes very clearly saying that &ldquo;duplication is far cheaper than the wrong abstraction&rdquo;, so &ldquo;prefer duplication over the wrong abstraction&rdquo;.</p>
+<p>At the same time, Robert C. Martin (&ldquo;Uncle Bob&rdquo;), in his well-known <a href="https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882"><em>Clean Code</em></a> book, emphasizes the idea that &ldquo;duplication is the primary enemy of a well-designed system&rdquo;. And so do a lot of other influential programmers, like <a href="https://twitter.com/KentBeck">Kent Beck</a> and <a href="https://twitter.com/RonJeffries">Ron Jeffries</a>. So what gives?</p>
+<h2 id="doppelgängers">Doppelgängers&nbsp;<a class="heading-anchor" href="#doppelgängers">&#x0023;</a></h2>
+<p>Turns out that there&rsquo;s one important fact we have to be aware of: there are different kinds of duplication. Uncle Bob touches on this very point in his most recent book <a href="https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164"><em>Clean Architecture</em></a>. There is <em>true duplication</em>, where the duplicates require the exact same changes, at the same times, for the same reasons – this is the kind we should cast away from our codebases. And there is false, or <em>accidental duplication</em>. This kind of duplication, we better let them be and just observe from afar.</p>
+<p>How do we know which kind of duplication are we looking at, then? Years before publishing the Clean Architecture book, Bob hinted on this subject when he wrote &ldquo;<a href="http://www.informit.com/articles/article.aspx?p=1313447">An Accidental Doppelgänger in Ruby</a>&rdquo;, in 2009. In this post, he poses the question:</p>
+<blockquote>
+<p>(…) if the implementation of two functions is identical, yet their intent is completely different, is it still duplicate code?</p>
+</blockquote>
+<p>His conclusion, in this specific case, was: yes. The solution arose from paying good attention to the <em>intent</em> and the <em>levels of abstraction</em> of the code he was dealing with. Being able to immediately recognize when you are going up and down in the abstractions in a single method is a powerful skill to develop. It helps you identify missing abstractions and domain concepts earlier in the case of true duplication. As for accidental, or coincidental, duplication, understanding the real intent and purpose of the code is fundamental. It goes hand in hand with the Single Responsibility Principle, from the SOLID principles presented by Uncle Bob himself in <a href="https://www.amazon.com/Software-Development-Principles-Patterns-Practices/dp/0135974445/"><em>Agile Software Development, Principles, Patterns, and Practices</em></a>. So, asking questions like…</p>
+<ul>
+<li>How often would this piece of software change compared to the other?</li>
+<li>What are the reasons for changing one or the other?</li>
+<li>Who&rsquo;d request such changes? The design team, the finances team?</li>
+<li>What purpose does this code serve?</li>
+<li>Which part of the architecture does it belong?</li>
+</ul>
+<p>… can help identify, or prevent accidental duplicates.</p>
+<p>It can be very tempting to pass along and use the same model or data structure across different architectural boundaries because they <em>look</em> the same at this point in time. As an example, the persistence and the presentation models can look the same in the very beginning of a project. This is an accidental duplication. It is only a coincidence that, at this very moment, they look exactly the same. Give them a few weeks and you&rsquo;ll see them evolve along different paths.</p>
+<h2 id="conclusion">Conclusion&nbsp;<a class="heading-anchor" href="#conclusion">&#x0023;</a></h2>
+<p>If you find yourself writing &ldquo;just another if-else clause&rdquo;, it is very likely that you&rsquo;re dealing with a bad abstraction. It&rsquo;s like trying to push a square peg into a round hole. You may be able to squeeze an edge or two in, but it is wasted effort. Once you realize that, you are better off backing up and choosing a different peg. Sandi Metz, in the aforementioned blog post, explains how we usually end up in these situations and how to recover from them, acknowledging the <a href="https://en.wikipedia.org/wiki/Sunk_cost#Loss_aversion_and_the_sunk_cost_fallacy">sunk cost fallacy</a>.</p>
+<p>One piece of advice that it is worth following is &ldquo;The Rule of Three&rdquo;. Made popular by Martin Fowler in <a href="https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672"><em>Refactoring: Improving the Design of Existing Code</em></a>, and attributed to <a href="https://www.evansville.edu/majors/eecs/biodr47.cfm">Don Roberts</a>. It goes like this:</p>
+<blockquote>
+<p>The first time you do something, you just do it. The second time you do something similar, you wince at the duplication, but you do the duplicate thing anyway. The third time you do something similar, you refactor.</p>
+</blockquote>
+<p>Before DRY&rsquo;ing up your code and refactoring it into abstractions, make sure you&rsquo;re facing a real duplication. If you&rsquo;re unsure, don&rsquo;t be hasty. Observe it for some time. Following The Rule of Three, asking similar the questions to the ones presented earlier and talking to your colleagues about this subject can vastly improve your software design skills and the maintainability of your codebase.</p>
+<p>Use the acronyms and catchphrases as reminders of certain principles or rules of thumb. But make sure you actually understand what lies behind those phrases. Remember to always take the extra step in learning a given subject.</p>
+
+	</section>
+</article>
+
+<aside class="hypothesis-annotations" style="text-align: right;">
+	<a data-hypothesis-trigger style="cursor: pointer;">
+		Annotations/Comments (<span data-hypothesis-annotation-count>…</span>)
+		&#x2192;
+	</a>
+
+	<script type="application/json" class="js-hypothesis-config">
+		{
+			"theme": "clean",
+			"branding": {
+				"selectionFontFamily": "Georgia, 'Times New Roman', Times, serif",
+				"annotationFontFamily": "Georgia, 'Times New Roman', Times, serif"
+			}
+		}
+	</script>
+	<script src="//hypothes.is/embed.js" async></script>
+</aside>
+
+
+
+	</main>
+	<footer>
+	Original articles on this site are CC
+	<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode"
+		>BY-NC-SA</a
+	>
+	licensed unless otherwise stated.<br />
+	
+</footer>
+
+</body>
+
+</html>

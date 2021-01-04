@@ -1,0 +1,12 @@
+.not-found {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	justify-content: center;
+	align-items: center;
+}
+
+.error-code {
+	font-size: var(--size-large);
+	font-family: var(--font-family-monospace);
+}
