@@ -4,7 +4,7 @@ services:
     image: klakegg/hugo:0.79.1-ext-alpine
     volumes:
       - .:/src
-      - ./output:/target
+      - ./public:/target
 
   shell:
     image: klakegg/hugo:0.79.1-ext-alpine
