@@ -12,4 +12,4 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
   github_repository = "https://github.com/gtramontina/gtramontina.github.io"
 
 [markup.goldmark.renderer]
-  unsafe= true
+  unsafe = true
