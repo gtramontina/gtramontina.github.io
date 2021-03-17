@@ -1,19 +1,19 @@
 version: "3"
 services:
   build:
-    image: klakegg/hugo:0.79.1-ext-alpine
+    image: klakegg/hugo:0.81.0-ext-alpine
     volumes:
       - .:/src
       - ./public:/target
 
   shell:
-    image: klakegg/hugo:0.79.1-ext-alpine
+    image: klakegg/hugo:0.81.0-ext-alpine
     command: shell
     volumes:
       - .:/src
 
   server:
-    image: klakegg/hugo:0.79.1-ext-alpine
+    image: klakegg/hugo:0.81.0-ext-alpine
     command: server -D
     volumes:
       - .:/src
