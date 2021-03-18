@@ -14,7 +14,7 @@ There are overlaps with common [code smells](https://wiki.c2.com/?CodeSmell), [w
 
 I'll organize these lessons in a series of smaller, focused posts, and I'll try my best to link to where I believe I first learned about them. Some of them are directly related to one another.
 
-This series is somewhat open-ended, as I intend to keep making adjustments and adding new lessons. So, eithout further ado, lets get to the lessons:
+This series is somewhat open-ended, as I intend to keep making adjustments and adding new lessons. So, without further ado, lets get to the lessons:
 
 1. [No Primitives](lessons-re-learned-1-no-primitives.html)
 1. [Isolate Nondeterminism](lessons-re-learned-2-isolate-nondeterminism.html)
