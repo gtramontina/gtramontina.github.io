@@ -2,7 +2,6 @@
 title: "Lessons (re)learned: 2. Isolate Nondeterminism"
 description: "Pushing nondeterminismt to the edges of the system"
 date: 2021-03-18T02:00:00Z
-draft: true
 ---
 
 # Isolate Nondeterminism

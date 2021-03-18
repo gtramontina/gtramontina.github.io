@@ -2,7 +2,6 @@
 title: "Lessons (re)learned"
 description: "Keeping track of lessons learned on software development"
 date: 2021-03-17T00:00:00Z
-draft: true
 ---
 
 # Lessons (re)learned

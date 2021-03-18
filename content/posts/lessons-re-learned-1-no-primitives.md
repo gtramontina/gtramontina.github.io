@@ -2,7 +2,6 @@
 title: "Lessons (re)learned: 1. No Primitives"
 description: "Fighting primitive obsession"
 date: 2021-03-18T01:00:00Z
-draft: true
 ---
 
 # No Primitives

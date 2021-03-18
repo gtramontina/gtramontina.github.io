@@ -2,7 +2,6 @@
 title: "Lessons (re)learned: 3. Reduced Integration Surface"
 description: "Keeping dependencies under control"
 date: 2021-03-18T03:00:00Z
-draft: true
 ---
 
 # Reduced Integration Surface
