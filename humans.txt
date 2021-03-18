@@ -11,6 +11,11 @@
 
 	I'll do my best to keep this section updated with the names of those who
 	contribute reviewing any of my publishings.
+	
+	Name: Romulo Furtado
+	GitHub: https://github.com/Rofrtd
+	Twitter: https://twitter.com/rofrtd
+	LinkedIn: https://linkedin.com/in/rofrtd
 
 /* SITE */
 
