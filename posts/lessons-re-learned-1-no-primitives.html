@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta property="og:title" content="Lessons (re)learned: 1. No Primitives" />
+
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-03-18">
+
+<meta property="og:description" content="Fighting primitive obsession" />
+<meta property="og:url" content="https://gtramontina.com/posts/lessons-re-learned-1-no-primitives.html" />
+<meta property="og:site_name" content="gtramontina" />
+
+
+	<meta property="twitter:description" content="Fighting primitive obsession" />
+<meta property="twitter:title" content="Lessons (re)learned: 1. No Primitives" />
+
+
+	<title>Lessons (re)learned: 1. No Primitives &bull; gtramontina</title>
+	<meta name="description" content="Software Development Ramblings">
+	<meta name="author" content="Guilherme J. Tramontina">
+	<link rel="stylesheet" href="/style.css">
+	<link type="text/plain" rel="author" href="/humans.txt" />
+	
+	
+</head>
+
+<body>
+	<header>
+	<span class="home"><a href="/" rel="home">~/</a></span>
+	<a href="/posts.html" rel="posts">Posts</a>
+	<a href="/about.html" rel="about">About</a>
+</header>
+
+	<main>
+		
+<article>
+	<header><a
+			href="https://github.com/gtramontina/gtramontina.github.io/edit/source/content/posts/lessons-re-learned-1-no-primitives.md"
+			title="Edit on GitHub"
+			>posts/lessons-re-learned-1-no-primitives.md</a
+		><div class="timestamps">
+			<time datetime="2021-18-03" title="Published: March 18, 2021">Mar 18, 2021</time>
+		</div>
+	</header>
+
+	<section>
+		<h1 id="no-primitives">No Primitives&nbsp;<a class="heading-anchor" href="#no-primitives">&#x0023;</a></h1>
+<p><em>Note: This post is part of the series <a href="lessons-re-learned-0.html">Lessons (re)learned</a>.</em></p>
+<p>Here&rsquo;s a relatively well known code smell: <a href="https://wiki.c2.com/?PrimitiveObsession">Primitive Obsession</a>. It is always very tempting — and some claim &ldquo;quicker&rdquo; — to use primitives instead of creating new types. When we do this, we&rsquo;re probably missing an opportunity to model a concept of the domain we&rsquo;re working with — or, at least, to raise the abstraction level a little bit.</p>
+<p>Writing validation routines is usually a good indication that we might have missed a concept. We&rsquo;ll need to <em>remember</em> to always validate in every place we interact with that particular concept to ensure its correctness. If we have to remember, we&rsquo;re bound to forget.</p>
+<p>It is very likely that our domain has rules around certain concepts, for example:</p>
+<ul>
+<li><strong>Age</strong>: we probably want the concept of <em>age</em> to be modeled in a way that it represents time being alive (in years, or perhaps months or weeks if it makes sense in our domain); it probably needs to be positive. It is not just any <code>number</code>.</li>
+<li><strong>Email</strong>: it is very likely it needs to be in the <code>john@doe.com</code> format. Maybe we want to have a name attached to it in the form of <code>Jane Doe &lt;jane@doe.com&gt;</code>. So it is not just any <code>string</code>.</li>
+<li><strong>Money</strong>: it needs a <code>Currency</code> (which itself is not only a <code>string</code>) in order for it to make sense. We may want to capture the <code>amount</code> in cents. Math operations can only be performed on moneys of the same currency. So <code>Money</code> is not just a <code>number</code>.</li>
+</ul>
+<p>We can always compose them to raise the abstraction level even more and enrich our domain models. For example, an <code>Account</code> model could be raised as <code>SourceAccount</code> and <code>DestinationAccount</code> when dealing with bank account transfers.</p>
+<p>Defining types also helps us to address certain types of <a href="https://en.wikipedia.org/wiki/Connascence">connascence</a>. Given the following example method:</p>
+<pre><code>save(productID string, name string)
+// interface: save(string, string)
+</code></pre><p>An honest mistake one can make is to invoke it with the order of the parameters reversed. If we raise the abstration level a bit and do:</p>
+<pre><code>save(id ProductID, name ProductName)
+// interface: save(ProductID, ProductName)
+</code></pre><p>Now we don&rsquo;t need to depend on knowing the internal variable names nor parameter order. This is especially beneficial on compiled languages or languages with type hints.</p>
+<p>This subject also touches on the idea of making illegal states unrepresentable. I can&rsquo;t really recall where I first heard or read about it, but here&rsquo;s a couple of resources:</p>
+<ul>
+<li><a href="https://blog.janestreet.com/effective-ml-revisited/">Effective ML Revisited</a> by <a href="https://twitter.com/yminsky">Yaron Minsky</a></li>
+<li><a href="https://www.youtube.com/watch?v=IcgmSRJHu_8">&ldquo;Making Impossible States Impossible&rdquo;</a> by <a href="https://twitter.com/rtfeldman">Richard Feldman</a></li>
+</ul>
+<p>In <a href="https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215">DDD</a> lingo, these models are known as <a href="https://martinfowler.com/bliki/ValueObject.html">Value Objects</a> and are considered the building blocks of our domain. I&rsquo;ve also seen these being called <a href="https://markhneedham.com/blog/2009/03/10/oo-micro-types/">Micro Types</a> or <a href="https://darrenhobbs.com/2007/04/11/tiny-types/">Tiny Types</a>.</p>
+
+	</section>
+</article>
+
+<aside class="hypothesis-annotations" style="text-align: right;">
+	<a data-hypothesis-trigger style="cursor: pointer;">
+		Annotations/Comments (<span data-hypothesis-annotation-count>…</span>)
+		&#x2192;
+	</a>
+
+	<script type="application/json" class="js-hypothesis-config">
+		{
+			"theme": "clean",
+			"branding": {
+				"selectionFontFamily": "Georgia, 'Times New Roman', Times, serif",
+				"annotationFontFamily": "Georgia, 'Times New Roman', Times, serif"
+			}
+		}
+	</script>
+	<script src="//hypothes.is/embed.js" async></script>
+</aside>
+
+
+
+	</main>
+	<footer>
+	Original articles on this site are CC
+	<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode"
+		>BY-NC-SA</a
+	>
+	licensed unless otherwise stated.<br />
+	
+</footer>
+
+</body>
+
+</html>

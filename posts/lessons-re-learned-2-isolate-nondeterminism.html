@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta property="og:title" content="Lessons (re)learned: 2. Isolate Nondeterminism" />
+
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-03-18">
+
+<meta property="og:description" content="Pushing nondeterminismt to the edges of the system" />
+<meta property="og:url" content="https://gtramontina.com/posts/lessons-re-learned-2-isolate-nondeterminism.html" />
+<meta property="og:site_name" content="gtramontina" />
+
+
+	<meta property="twitter:description" content="Pushing nondeterminismt to the edges of the system" />
+<meta property="twitter:title" content="Lessons (re)learned: 2. Isolate Nondeterminism" />
+
+
+	<title>Lessons (re)learned: 2. Isolate Nondeterminism &bull; gtramontina</title>
+	<meta name="description" content="Software Development Ramblings">
+	<meta name="author" content="Guilherme J. Tramontina">
+	<link rel="stylesheet" href="/style.css">
+	<link type="text/plain" rel="author" href="/humans.txt" />
+	
+	
+</head>
+
+<body>
+	<header>
+	<span class="home"><a href="/" rel="home">~/</a></span>
+	<a href="/posts.html" rel="posts">Posts</a>
+	<a href="/about.html" rel="about">About</a>
+</header>
+
+	<main>
+		
+<article>
+	<header><a
+			href="https://github.com/gtramontina/gtramontina.github.io/edit/source/content/posts/lessons-re-learned-2-isolate-nondeterminism.md"
+			title="Edit on GitHub"
+			>posts/lessons-re-learned-2-isolate-nondeterminism.md</a
+		><div class="timestamps">
+			<time datetime="2021-18-03" title="Published: March 18, 2021">Mar 18, 2021</time>
+		</div>
+	</header>
+
+	<section>
+		<h1 id="isolate-nondeterminism">Isolate Nondeterminism&nbsp;<a class="heading-anchor" href="#isolate-nondeterminism">&#x0023;</a></h1>
+<p><em>Note: This post is part of the series <a href="lessons-re-learned-0.html">Lessons (re)learned</a>.</em></p>
+<p>Every system has sources of nondeterminism. We need to identify them and push them off to the boundaries, leveraging <a href="lessons-re-learned-0.html#todo_inject-dependencies">dependency injection</a> in order to make use of them. Not controlling these sources of nondeterminism usually leads to test flakiness. <em>Time</em> and <em>random</em> are two very common sources of nondeterminism. In fact, any language-provided static functions are likely to be nondeterministic. <a href="lessons-re-learned-3-reduced-integration-surface.html">Third-party integrations</a> are definitely sources of nondeterminism.</p>
+<p><a href="https://www.davefarley.net/">Dave Farley</a>, from <a href="https://www.continuousdelivery.com/">Continuous Delivery</a>, released a really nice video titled &ldquo;<a href="https://www.youtube.com/watch?v=Xa6UEHyEyzQ">BDD Testing Time</a>&rdquo;. The technique demontrated there can be applied to other sources of nondeterminism as well.</p>
+<p>This idea flows naturally if we&rsquo;re practicing <a href="https://www.amazon.com.au/Test-Driven-Development-Kent-Beck/dp/0321146530">TDD</a>. It will have a nice side effect of making our codebase more modular and composable.</p>
+<p><a href="https://twitter.com/garybernhardt">Gary Bernhardt</a> has a really nice screencast titled <a href="https://www.destroyallsoftware.com/screencasts/catalog/functional-core-imperative-shell">Functional Core, Imperative Shell</a> where he presents a very interesting way of thinking about this.</p>
+
+	</section>
+</article>
+
+<aside class="hypothesis-annotations" style="text-align: right;">
+	<a data-hypothesis-trigger style="cursor: pointer;">
+		Annotations/Comments (<span data-hypothesis-annotation-count>…</span>)
+		&#x2192;
+	</a>
+
+	<script type="application/json" class="js-hypothesis-config">
+		{
+			"theme": "clean",
+			"branding": {
+				"selectionFontFamily": "Georgia, 'Times New Roman', Times, serif",
+				"annotationFontFamily": "Georgia, 'Times New Roman', Times, serif"
+			}
+		}
+	</script>
+	<script src="//hypothes.is/embed.js" async></script>
+</aside>
+
+
+
+	</main>
+	<footer>
+	Original articles on this site are CC
+	<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode"
+		>BY-NC-SA</a
+	>
+	licensed unless otherwise stated.<br />
+	
+</footer>
+
+</body>
+
+</html>

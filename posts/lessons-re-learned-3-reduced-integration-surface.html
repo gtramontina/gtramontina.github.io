@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta property="og:title" content="Lessons (re)learned: 3. Reduced Integration Surface" />
+
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-03-18">
+
+<meta property="og:description" content="Keeping dependencies under control" />
+<meta property="og:url" content="https://gtramontina.com/posts/lessons-re-learned-3-reduced-integration-surface.html" />
+<meta property="og:site_name" content="gtramontina" />
+
+
+	<meta property="twitter:description" content="Keeping dependencies under control" />
+<meta property="twitter:title" content="Lessons (re)learned: 3. Reduced Integration Surface" />
+
+
+	<title>Lessons (re)learned: 3. Reduced Integration Surface &bull; gtramontina</title>
+	<meta name="description" content="Software Development Ramblings">
+	<meta name="author" content="Guilherme J. Tramontina">
+	<link rel="stylesheet" href="/style.css">
+	<link type="text/plain" rel="author" href="/humans.txt" />
+	
+	
+</head>
+
+<body>
+	<header>
+	<span class="home"><a href="/" rel="home">~/</a></span>
+	<a href="/posts.html" rel="posts">Posts</a>
+	<a href="/about.html" rel="about">About</a>
+</header>
+
+	<main>
+		
+<article>
+	<header><a
+			href="https://github.com/gtramontina/gtramontina.github.io/edit/source/content/posts/lessons-re-learned-3-reduced-integration-surface.md"
+			title="Edit on GitHub"
+			>posts/lessons-re-learned-3-reduced-integration-surface.md</a
+		><div class="timestamps">
+			<time datetime="2021-18-03" title="Published: March 18, 2021">Mar 18, 2021</time>
+		</div>
+	</header>
+
+	<section>
+		<h1 id="reduced-integration-surface">Reduced Integration Surface&nbsp;<a class="heading-anchor" href="#reduced-integration-surface">&#x0023;</a></h1>
+<p><em>Note: This post is part of the series <a href="lessons-re-learned-0.html">Lessons (re)learned</a>.</em></p>
+<p>Integrations with third-party systems are also sources of <a href="lessons-re-learned-2-isolate-nondeterminism.html">nondeterminism</a>. We should always strive to keep our dependencies at a minimum. The essence of sustainable software development is dependency management. Internal and external.</p>
+<p>We must approach integrations from our needs' perspective. With that in mind, we can <a href="lessons-re-learned-0.html#todo_own-your-interfaces">design interfaces</a> – upon which our system depends on – that satisfy those needs. Then, instead of making remote calls or using the provider&rsquo;s SDK directly from our where we perform business logic, we can hide this integration behind concrete implementations of those interfaces. With this approach, we can create <a href="http://xunitpatterns.com/Test%20Double%20Patterns.html">test doubles</a> to excercise our business logic with different scenarios and makes changing providers, from a coding point of view, a relatively simple task – granted these interfaces are well thought out and designed.</p>
+<p>Another important quality to strive for when designing these interfaces is to communicate only one intent per method. This will guide the concrete implementations to have a single code path per method – no if/else branches. This minimizes the need for complex integration tests at this layer. We might as well decide to not test these concrete implementations directly and let the higher level end-to-end tests excercise them.</p>
+
+	</section>
+</article>
+
+<aside class="hypothesis-annotations" style="text-align: right;">
+	<a data-hypothesis-trigger style="cursor: pointer;">
+		Annotations/Comments (<span data-hypothesis-annotation-count>…</span>)
+		&#x2192;
+	</a>
+
+	<script type="application/json" class="js-hypothesis-config">
+		{
+			"theme": "clean",
+			"branding": {
+				"selectionFontFamily": "Georgia, 'Times New Roman', Times, serif",
+				"annotationFontFamily": "Georgia, 'Times New Roman', Times, serif"
+			}
+		}
+	</script>
+	<script src="//hypothes.is/embed.js" async></script>
+</aside>
+
+
+
+	</main>
+	<footer>
+	Original articles on this site are CC
+	<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode"
+		>BY-NC-SA</a
+	>
+	licensed unless otherwise stated.<br />
+	
+</footer>
+
+</body>
+
+</html>
