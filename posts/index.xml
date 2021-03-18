@@ -21,7 +21,7 @@
 			<guid>https://gtramontina.com/posts/lessons-re-learned-3-reduced-integration-surface.html</guid>
 			<description>Reduced Integration Surface Note: This post is part of the series Lessons (re)learned.
 Integrations with third-party systems are also sources of nondeterminism. We should always strive to keep our dependencies at a minimum. The essence of sustainable software development is dependency management. Internal and external.
-We must approach integrations from our needs&#39; perspective. With that in mind, we can design interfaces – upon which our system depends on – that satisfy those needs.</description>
+We must approach integrations from our needs&#39; perspective. With that in mind, we can design interfaces – upon which our system depend on – that satisfy those needs.</description>
 		</item>
 		
 		<item>
