@@ -1,5 +1,6 @@
 :root {
 	--color-light: #5f5f5f;
+	--color-highlight: #fffF60;
 	--font-family-monospace: "Courier New", Courier, monospace;
 	--size-large: 1.75rem;
 	--size-normal: 1rem;
@@ -205,3 +206,18 @@ td {
 [rel="home"]:visited {
 	color: var(--color-foreground);
 }
+
+[id^="todo_"]:target {
+	animation-name: highlight;
+	animation-duration: 3s;
+	animation-timing-function: ease-out;
+}
+
+@keyframes highlight {
+	0% {
+		background-color: var(--color-highlight);
+	}
+	100% {
+		background-color: initial;
+	}
+  }
