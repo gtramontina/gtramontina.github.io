@@ -10,7 +10,7 @@ _Note: This post is part of the series [Lessons (re)learned](lessons-re-learned-
 
 When writing software following the object-oriented [paradigm](https://en.wikipedia.org/wiki/Programming_paradigm), [dependency injection](https://martinfowler.com/articles/injection.html) remains one useful technique, regardless of language.
 
-As mentioned in the post titled [Reduced Integration Surface](lessons-re-learned-3-reduced-integration-surface.html), managing dependencies is key to sustainable software development. One practice that helps up better do that is to separate _construction_ logic from _business_ logic. Usually, construction takes place in the software entry point, where we declare and wire up the entire dependency graph.
+As mentioned in the post titled [Reduced Integration Surface](lessons-re-learned-3-reduced-integration-surface.html), managing dependencies is key to sustainable software development. One practice that helps us better do that is to separate _construction_ logic from _business_ logic. Usually, construction takes place in the software entry point, where we declare and wire up the entire dependency graph.
 
 One interesting effect of injecting dependencies is that it makes them explicit. In turn, we get better insights on the levels of abstraction and [code smells](https://wiki.c2.com/?CodeSmell), such as [data clumps](https://martinfowler.com/bliki/DataClump.html) and [feature envy](https://wiki.c2.com/?FeatureEnvySmell).
 
