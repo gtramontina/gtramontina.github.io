@@ -8,10 +8,21 @@
 		
 		
 		
-		<lastBuildDate>Thu, 18 Mar 2021 03:00:00 +0000</lastBuildDate>
+		<lastBuildDate>Wed, 28 Jul 2021 07:30:00 +0000</lastBuildDate>
 		
 		<atom:link href="https://gtramontina.com/posts/index.xml" rel="self" type="application/rss+xml" />
 		
+		
+		<item>
+			<title>Lessons (re)learned: 4. Inject Dependencies</title>
+			<link>https://gtramontina.com/posts/lessons-re-learned-4-inject-dependencies.html</link>
+			<pubDate>Wed, 28 Jul 2021 07:30:00 +0000</pubDate>
+			
+			<guid>https://gtramontina.com/posts/lessons-re-learned-4-inject-dependencies.html</guid>
+			<description>Inject Dependencies Note: This post is part of the series Lessons (re)learned.
+When writing software following the object-oriented paradigm, dependency injection remains one useful technique, regardless of language. It makes dependencies explicit.
+As mentioned in the post titled Reduced Integration Surface, managing dependencies is key to sustainable software development. One practice that helps up better do that is to separate construction logic from business logic. Usually, construction takes place in the software entry point, where we declare and wire up the entire dependency graph.</description>
+		</item>
 		
 		<item>
 			<title>Lessons (re)learned: 3. Reduced Integration Surface</title>
