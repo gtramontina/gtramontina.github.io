@@ -1,13 +1,13 @@
-hugo := docker-compose run --rm --service-ports
+docker := docker-compose run --rm --service-ports
 
 build:
-	@$(hugo) build
+	@$(docker) hugo-build
 .PHONY: build
 
 dev:
-	@$(hugo) server
+	@$(docker) hugo-server
 .PHONY: dev
 
 shell:
-	@$(hugo) shell
+	@$(docker) hugo-shell
 .PHONY: shell

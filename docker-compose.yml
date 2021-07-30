@@ -1,18 +1,18 @@
 version: "3"
 services:
-  build:
+  hugo-build:
     image: klakegg/hugo:0.81.0-ext-alpine
     volumes:
       - .:/src
       - ./public:/target
 
-  shell:
+  hugo-shell:
     image: klakegg/hugo:0.81.0-ext-alpine
     command: shell
     volumes:
       - .:/src
 
-  server:
+  hugo-server:
     image: klakegg/hugo:0.81.0-ext-alpine
     command: server -D
     volumes:
