@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title>gtramontina</title>
+	<subtitle>Software Development Ramblings</subtitle>
+	<link href="https://gtramontina.com/feed.atom" rel="self"/>
+	<link href="https://gtramontina.com"/>
+	<updated>2021-07-28T07:30:00.000Z</updated>
+	<id>https://gtramontina.com</id>
+	<author>
+		<name>Guilherme J. Tramontina</name>
+		<uri>https://gtramontina.com</uri>
+	</author>
+	<entry>
+		<title>Do Repeat Yourself</title>
+		<link href="https://gtramontina.com/posts/do-repeat-yourself/"/>
+		<updated>2020-02-23T10:27:57.000Z</updated>
+		<id>https://gtramontina.com/posts/do-repeat-yourself/</id>
+		<content type="html">&lt;h1&gt;Do Repeat Yourself&lt;/h1&gt;
+&lt;p&gt;One of the first software development principles programmers learn is the DRY principle: Don&#39;t Repeat Yourself. One can think of it as being quite self-explanatory, without requiring to go beyond &amp;quot;remove duplication&amp;quot; to claim understanding of it. Is that enough, though? What is duplication, anyway?&lt;/p&gt;
+&lt;h2&gt;Historia&lt;/h2&gt;
+&lt;p&gt;Let&#39;s start from the beginning. &lt;a href=&quot;https://twitter.com/pragmaticandy&quot;&gt;Andrew Hunt&lt;/a&gt; and &lt;a href=&quot;https://twitter.com/pragdave&quot;&gt;David Thomas&lt;/a&gt; first introduced this principle in their 1999 &lt;a href=&quot;https://pragprog.com/book/tpp/the-pragmatic-programmer&quot;&gt;&lt;em&gt;The Pragmatic Programmer: From Journeyman to Master&lt;/em&gt;&lt;/a&gt; book (an updated &lt;a href=&quot;https://pragprog.com/titles/tpp20&quot;&gt;20th Anniversary Edition&lt;/a&gt; is also available). A must-read, if you ask me. It states the following:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This tip, number 11, is given amidst a section named &lt;em&gt;The Evils of Duplication&lt;/em&gt;, where the authors explain the dangers of having duplicated knowledge within a system. The DRY principle is not as much about &lt;em&gt;code&lt;/em&gt; as it is about &lt;em&gt;knowledge&lt;/em&gt;. Any kind of knowledge, but especially domain knowledge. Sure, this knowledge will eventually become code. But the point is that there should be only one representation of it in code.&lt;/p&gt;
+&lt;h2&gt;The Confusion&lt;/h2&gt;
+&lt;p&gt;It&#39;s very easy for us, developers, especially beginners and &lt;a href=&quot;https://daedtech.com/how-developers-stop-learning-rise-of-the-expert-beginner/&quot;&gt;expert-beginners&lt;/a&gt;, to misinterpret and obsess over it. We can go hours removing every bit of duplicated code, applying all the design patterns we know, thinking how smart we are, until there is not a single duplicated word left. This is very dangerous! In fact, we should be extra careful when refactoring to abstractions. &lt;a href=&quot;https://www.sandimetz.com/&quot;&gt;Sandi Metz&lt;/a&gt;, in &lt;a href=&quot;https://www.sandimetz.com/blog/2016/1/20/the-wrong-abstraction&quot;&gt;&lt;em&gt;The Wrong Abstraction&lt;/em&gt;&lt;/a&gt;, summarizes very clearly saying that &amp;quot;duplication is far cheaper than the wrong abstraction&amp;quot;, so &amp;quot;prefer duplication over the wrong abstraction&amp;quot;.&lt;/p&gt;
+&lt;p&gt;At the same time, Robert C. Martin (&amp;quot;Uncle Bob&amp;quot;), in his well-known &lt;a href=&quot;https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882&quot;&gt;&lt;em&gt;Clean Code&lt;/em&gt;&lt;/a&gt; book, emphasizes the idea that &amp;quot;duplication is the primary enemy of a well-designed system&amp;quot;. And so do a lot of other influential programmers, like &lt;a href=&quot;https://twitter.com/KentBeck&quot;&gt;Kent Beck&lt;/a&gt; and &lt;a href=&quot;https://twitter.com/RonJeffries&quot;&gt;Ron Jeffries&lt;/a&gt;. So what gives?&lt;/p&gt;
+&lt;h2&gt;Doppelgängers&lt;/h2&gt;
+&lt;p&gt;Turns out that there&#39;s one important fact we have to be aware of: there are different kinds of duplication. Uncle Bob touches on this very point in his most recent book &lt;a href=&quot;https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164&quot;&gt;&lt;em&gt;Clean Architecture&lt;/em&gt;&lt;/a&gt;. There is &lt;em&gt;true duplication&lt;/em&gt;, where the duplicates require the exact same changes, at the same times, for the same reasons – this is the kind we should cast away from our codebases. And there is false, or &lt;em&gt;accidental duplication&lt;/em&gt;. This kind of duplication, we better let them be and just observe from afar.&lt;/p&gt;
+&lt;p&gt;How do we know which kind of duplication are we looking at, then? Years before publishing the Clean Architecture book, Bob hinted on this subject when he wrote &amp;quot;&lt;a href=&quot;http://www.informit.com/articles/article.aspx?p=1313447&quot;&gt;An Accidental Doppelgänger in Ruby&lt;/a&gt;&amp;quot;, in 2009. In this post, he poses the question:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(…) if the implementation of two functions is identical, yet their intent is completely different, is it still duplicate code?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;His conclusion, in this specific case, was: yes. The solution arose from paying good attention to the &lt;em&gt;intent&lt;/em&gt; and the &lt;em&gt;levels of abstraction&lt;/em&gt; of the code he was dealing with. Being able to immediately recognize when you are going up and down in the abstractions in a single method is a powerful skill to develop. It helps you identify missing abstractions and domain concepts earlier in the case of true duplication. As for accidental, or coincidental, duplication, understanding the real intent and purpose of the code is fundamental. It goes hand in hand with the Single Responsibility Principle, from the SOLID principles presented by Uncle Bob himself in &lt;a href=&quot;https://www.amazon.com/Software-Development-Principles-Patterns-Practices/dp/0135974445/&quot;&gt;&lt;em&gt;Agile Software Development, Principles, Patterns, and Practices&lt;/em&gt;&lt;/a&gt;. So, asking questions like…&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;How often would this piece of software change compared to the other?&lt;/li&gt;
+&lt;li&gt;What are the reasons for changing one or the other?&lt;/li&gt;
+&lt;li&gt;Who&#39;d request such changes? The design team, the finances team?&lt;/li&gt;
+&lt;li&gt;What purpose does this code serve?&lt;/li&gt;
+&lt;li&gt;Which part of the architecture does it belong?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;… can help identify, or prevent accidental duplicates.&lt;/p&gt;
+&lt;p&gt;It can be very tempting to pass along and use the same model or data structure across different architectural boundaries because they &lt;em&gt;look&lt;/em&gt; the same at this point in time. As an example, the persistence and the presentation models can look the same in the very beginning of a project. This is an accidental duplication. It is only a coincidence that, at this very moment, they look exactly the same. Give them a few weeks and you&#39;ll see them evolve along different paths.&lt;/p&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;If you find yourself writing &amp;quot;just another if-else clause&amp;quot;, it is very likely that you&#39;re dealing with a bad abstraction. It&#39;s like trying to push a square peg into a round hole. You may be able to squeeze an edge or two in, but it is wasted effort. Once you realize that, you are better off backing up and choosing a different peg. Sandi Metz, in the aforementioned blog post, explains how we usually end up in these situations and how to recover from them, acknowledging the &lt;a href=&quot;https://en.wikipedia.org/wiki/Sunk_cost#Loss_aversion_and_the_sunk_cost_fallacy&quot;&gt;sunk cost fallacy&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;One piece of advice that it is worth following is &amp;quot;The Rule of Three&amp;quot;. Made popular by Martin Fowler in &lt;a href=&quot;https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672&quot;&gt;&lt;em&gt;Refactoring: Improving the Design of Existing Code&lt;/em&gt;&lt;/a&gt;, and attributed to &lt;a href=&quot;https://www.evansville.edu/majors/eecs/biodr47.cfm&quot;&gt;Don Roberts&lt;/a&gt;. It goes like this:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The first time you do something, you just do it. The second time you do something similar, you wince at the duplication, but you do the duplicate thing anyway. The third time you do something similar, you refactor.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Before DRY&#39;ing up your code and refactoring it into abstractions, make sure you&#39;re facing a real duplication. If you&#39;re unsure, don&#39;t be hasty. Observe it for some time. Following The Rule of Three, asking similar the questions to the ones presented earlier and talking to your colleagues about this subject can vastly improve your software design skills and the maintainability of your codebase.&lt;/p&gt;
+&lt;p&gt;Use the acronyms and catchphrases as reminders of certain principles or rules of thumb. But make sure you actually understand what lies behind those phrases. Remember to always take the extra step in learning a given subject.&lt;/p&gt;
+</content>
+	</entry>
+	<entry>
+		<title>Lessons (re)learned</title>
+		<link href="https://gtramontina.com/posts/lessons-re-learned-0/"/>
+		<updated>2021-03-17T00:00:00.000Z</updated>
+		<id>https://gtramontina.com/posts/lessons-re-learned-0/</id>
+		<content type="html">&lt;h1&gt;Lessons (re)learned&lt;/h1&gt;
+&lt;p&gt;Every now and again I am reminded of certain software development lessons I&#39;ve already learned and, for reasons I&#39;m yet to document, I keep re-learning. Groundhog Day feelings.&lt;/p&gt;
+&lt;p&gt;Writing these lessons down is my attempt at retaining this knowledge long(er) term; to reduce the time spent going in circles only to learn the same lesson again. When the code is giving us the same ol&#39; hints, we, most certainly, can apply the same ol&#39; techniques.&lt;/p&gt;
+&lt;p&gt;There are overlaps with common &lt;a href=&quot;https://wiki.c2.com/?CodeSmell&quot;&gt;code smells&lt;/a&gt;, &lt;a href=&quot;https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882&quot;&gt;well known good practices&lt;/a&gt; and &lt;a href=&quot;https://web.archive.org/web/20150104153931/www.xpteam.com/jeff/writings/objectcalisthenics.rtf&quot;&gt;other practices&lt;/a&gt;. I don&#39;t mean to give them new names or anything. Instead, I want to put them words that I can refer to later and quickly remember.&lt;/p&gt;
+&lt;p&gt;I&#39;ll organize these lessons in a series of smaller, focused posts, and I&#39;ll try my best to link to where I believe I first learned about them. Some of them are directly related to one another.&lt;/p&gt;
+&lt;p&gt;This series is somewhat open-ended, as I intend to keep making adjustments and adding new lessons. So, without further ado, lets get to the lessons:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;/posts/lessons-re-learned-1-no-primitives&quot;&gt;No Primitives&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/posts/lessons-re-learned-2-isolate-nondeterminism&quot;&gt;Isolate Nondeterminism&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/posts/lessons-re-learned-3-reduced-integration-surface&quot;&gt;Reduced Integration Surface&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/posts/lessons-re-learned-4-inject-dependencies&quot;&gt;Inject Dependencies&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;todo_no-getters-nor-setters&quot;&gt;&lt;em&gt;(planned)&lt;/em&gt; No Getters Nor Setters&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;todo_own-your-interfaces&quot;&gt;&lt;em&gt;(planned)&lt;/em&gt; Own Your Interfaces&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;todo_only-one-return-type&quot;&gt;&lt;em&gt;(planned)&lt;/em&gt; Only One Return Type&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;todo_avoid-private-methods&quot;&gt;&lt;em&gt;(planned)&lt;/em&gt; Avoid Private Methods&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+	</entry>
+	<entry>
+		<title>Lessons (re)learned: 1. No Primitives</title>
+		<link href="https://gtramontina.com/posts/lessons-re-learned-1-no-primitives/"/>
+		<updated>2021-03-18T01:00:00.000Z</updated>
+		<id>https://gtramontina.com/posts/lessons-re-learned-1-no-primitives/</id>
+		<content type="html">&lt;h1&gt;No Primitives&lt;/h1&gt;
+&lt;p&gt;&lt;em&gt;Note: This post is part of the series &lt;a href=&quot;/posts/lessons-re-learned-0&quot;&gt;Lessons (re)learned&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Here&#39;s a relatively well known code smell: &lt;a href=&quot;https://wiki.c2.com/?PrimitiveObsession&quot;&gt;Primitive Obsession&lt;/a&gt;. It is always very tempting — and some claim &amp;quot;quicker&amp;quot; — to use primitives instead of creating new types. When we do this, we&#39;re probably missing an opportunity to model a concept of the domain we&#39;re working with — or, at least, to raise the abstraction level a little bit.&lt;/p&gt;
+&lt;p&gt;Writing validation routines is usually a good indication that we might have missed a concept. We&#39;ll need to &lt;em&gt;remember&lt;/em&gt; to always validate in every place we interact with that particular concept to ensure its correctness. If we have to remember, we&#39;re bound to forget.&lt;/p&gt;
+&lt;p&gt;It is very likely that our domain has rules around certain concepts, for example:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Age&lt;/strong&gt;: we probably want the concept of &lt;em&gt;age&lt;/em&gt; to be modeled in a way that it represents time being alive (in years, or perhaps months or weeks if it makes sense in our domain); it probably needs to be positive. It is not just any &lt;code&gt;number&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Email&lt;/strong&gt;: it is very likely it needs to be in the &lt;code&gt;john@doe.com&lt;/code&gt; format. Maybe we want to have a name attached to it in the form of &lt;code&gt;Jane Doe &amp;lt;jane@doe.com&amp;gt;&lt;/code&gt;. So it is not just any &lt;code&gt;string&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Money&lt;/strong&gt;: it needs a &lt;code&gt;Currency&lt;/code&gt; (which itself is not only a &lt;code&gt;string&lt;/code&gt;) in order for it to make sense. We may want to capture the &lt;code&gt;amount&lt;/code&gt; in cents. Math operations can only be performed on moneys of the same currency. So &lt;code&gt;Money&lt;/code&gt; is not just a &lt;code&gt;number&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We can always compose them to raise the abstraction level even more and enrich our domain models. For example, an &lt;code&gt;Account&lt;/code&gt; model could be raised as &lt;code&gt;SourceAccount&lt;/code&gt; and &lt;code&gt;DestinationAccount&lt;/code&gt; when dealing with bank account transfers.&lt;/p&gt;
+&lt;p&gt;Defining types also helps us to address certain types of &lt;a href=&quot;https://en.wikipedia.org/wiki/Connascence&quot;&gt;connascence&lt;/a&gt;. Given the following example method:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;save(productID string, name string)
+// interface: save(string, string)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;An honest mistake one can make is to invoke it with the order of the parameters reversed. If we raise the abstration level a bit and do:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;save(id ProductID, name ProductName)
+// interface: save(ProductID, ProductName)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we don&#39;t need to depend on knowing the internal variable names nor parameter order. This is especially beneficial on compiled languages or languages with type hints.&lt;/p&gt;
+&lt;p&gt;This subject also touches on the idea of making illegal states unrepresentable. I can&#39;t really recall where I first heard or read about it, but here&#39;s a couple of resources:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://blog.janestreet.com/effective-ml-revisited/&quot;&gt;Effective ML Revisited&lt;/a&gt; by &lt;a href=&quot;https://twitter.com/yminsky&quot;&gt;Yaron Minsky&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=IcgmSRJHu_8&quot;&gt;Making Impossible States Impossible&lt;/a&gt; by &lt;a href=&quot;https://twitter.com/rtfeldman&quot;&gt;Richard Feldman&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In &lt;a href=&quot;https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215&quot;&gt;DDD&lt;/a&gt; lingo, these models are known as &lt;a href=&quot;https://martinfowler.com/bliki/ValueObject.html&quot;&gt;Value Objects&lt;/a&gt; and are considered the building blocks of our domain. I&#39;ve also seen these being called &lt;a href=&quot;https://markhneedham.com/blog/2009/03/10/oo-micro-types/&quot;&gt;Micro Types&lt;/a&gt; or &lt;a href=&quot;https://darrenhobbs.com/2007/04/11/tiny-types/&quot;&gt;Tiny Types&lt;/a&gt;.&lt;/p&gt;
+</content>
+	</entry>
+	<entry>
+		<title>Lessons (re)learned: 2. Isolate Nondeterminism</title>
+		<link href="https://gtramontina.com/posts/lessons-re-learned-2-isolate-nondeterminism/"/>
+		<updated>2021-03-18T02:00:00.000Z</updated>
+		<id>https://gtramontina.com/posts/lessons-re-learned-2-isolate-nondeterminism/</id>
+		<content type="html">&lt;h1&gt;Isolate Nondeterminism&lt;/h1&gt;
+&lt;p&gt;&lt;em&gt;Note: This post is part of the series &lt;a href=&quot;/posts/lessons-re-learned-0&quot;&gt;Lessons (re)learned&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Every system has sources of nondeterminism. We need to identify them and push them off to the boundaries, leveraging &lt;a href=&quot;/posts/lessons-re-learned-0/#todo_inject-dependencies&quot;&gt;dependency injection&lt;/a&gt; in order to make use of them. Not controlling these sources of nondeterminism usually leads to test flakiness. &lt;em&gt;Time&lt;/em&gt; and &lt;em&gt;random&lt;/em&gt; are two very common sources of nondeterminism. In fact, any language-provided static functions are likely to be nondeterministic. &lt;a href=&quot;/posts/lessons-re-learned-3-reduced-integration-surface&quot;&gt;Third-party integrations&lt;/a&gt; are definitely sources of nondeterminism.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.davefarley.net/&quot;&gt;Dave Farley&lt;/a&gt;, from &lt;a href=&quot;https://www.continuousdelivery.com/&quot;&gt;Continuous Delivery&lt;/a&gt;, released a really nice video titled &amp;quot;&lt;a href=&quot;https://www.youtube.com/watch?v=Xa6UEHyEyzQ&quot;&gt;BDD Testing Time&lt;/a&gt;&amp;quot;. The technique demontrated there can be applied to other sources of nondeterminism as well.&lt;/p&gt;
+&lt;p&gt;This idea flows naturally if we&#39;re practicing &lt;a href=&quot;https://www.amazon.com.au/Test-Driven-Development-Kent-Beck/dp/0321146530&quot;&gt;TDD&lt;/a&gt;. It will have a nice side effect of making our codebase more modular and composable.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/garybernhardt&quot;&gt;Gary Bernhardt&lt;/a&gt; has a really nice screencast titled &lt;a href=&quot;https://www.destroyallsoftware.com/screencasts/catalog/functional-core-imperative-shell&quot;&gt;Functional Core, Imperative Shell&lt;/a&gt; where he presents a very interesting way of thinking about this.&lt;/p&gt;
+</content>
+	</entry>
+	<entry>
+		<title>Lessons (re)learned: 3. Reduced Integration Surface</title>
+		<link href="https://gtramontina.com/posts/lessons-re-learned-3-reduced-integration-surface/"/>
+		<updated>2021-03-18T03:00:00.000Z</updated>
+		<id>https://gtramontina.com/posts/lessons-re-learned-3-reduced-integration-surface/</id>
+		<content type="html">&lt;h1&gt;Reduced Integration Surface&lt;/h1&gt;
+&lt;p&gt;&lt;em&gt;Note: This post is part of the series &lt;a href=&quot;/posts/lessons-re-learned-0&quot;&gt;Lessons (re)learned&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Integrations with third-party systems are also sources of &lt;a href=&quot;/posts/lessons-re-learned-2-isolate-nondeterminism&quot;&gt;nondeterminism&lt;/a&gt;. We should always strive to keep our dependencies at a minimum. The essence of sustainable software development is dependency management. Internal and external.&lt;/p&gt;
+&lt;p&gt;We must approach integrations from our needs&#39; perspective. With that in mind, we can &lt;a href=&quot;/posts/lessons-re-learned-0/#todo_own-your-interfaces&quot;&gt;design interfaces&lt;/a&gt; – upon which our system depend on – that satisfy those needs. Then, instead of making remote calls or using the provider&#39;s SDK directly from where we perform business logic, we can hide this integration behind concrete implementations of those interfaces. With this approach, we can create &lt;a href=&quot;http://xunitpatterns.com/Test%20Double%20Patterns.html&quot;&gt;test doubles&lt;/a&gt; to excercise our business logic with different scenarios and makes changing providers, from a coding point of view, a relatively simple task – granted these interfaces are well thought out and designed.&lt;/p&gt;
+&lt;p&gt;Another important quality to strive for when designing these interfaces is to communicate only one intent per method. This will guide the concrete implementations to have a single code path per method – no if/else branches. This minimizes the need for complex integration tests at this layer. We might as well decide to not test these concrete implementations directly and let the higher level end-to-end tests excercise them.&lt;/p&gt;
+</content>
+	</entry>
+	<entry>
+		<title>Lessons (re)learned: 4. Inject Dependencies</title>
+		<link href="https://gtramontina.com/posts/lessons-re-learned-4-inject-dependencies/"/>
+		<updated>2021-07-28T07:30:00.000Z</updated>
+		<id>https://gtramontina.com/posts/lessons-re-learned-4-inject-dependencies/</id>
+		<content type="html">&lt;h1&gt;Inject Dependencies&lt;/h1&gt;
+&lt;p&gt;&lt;em&gt;Note: This post is part of the series &lt;a href=&quot;/posts/lessons-re-learned-0&quot;&gt;Lessons (re)learned&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;When writing software following the object-oriented &lt;a href=&quot;https://en.wikipedia.org/wiki/Programming_paradigm&quot;&gt;paradigm&lt;/a&gt;, &lt;a href=&quot;https://martinfowler.com/articles/injection.html&quot;&gt;dependency injection&lt;/a&gt; remains one useful technique, regardless of language.&lt;/p&gt;
+&lt;p&gt;As mentioned in the post titled &lt;a href=&quot;/posts/lessons-re-learned-3-reduced-integration-surface&quot;&gt;Reduced Integration Surface&lt;/a&gt;, managing dependencies is key to sustainable software development. One practice that helps us better do that is to separate &lt;em&gt;construction&lt;/em&gt; logic from &lt;em&gt;business&lt;/em&gt; logic. Usually, construction takes place in the software entry point, where we declare and wire up the entire dependency graph.&lt;/p&gt;
+&lt;p&gt;One interesting effect of injecting dependencies is that it makes them explicit. In turn, we get better insights on the &lt;a href=&quot;https://en.wikipedia.org/wiki/Abstraction_layer&quot;&gt;levels of abstraction&lt;/a&gt; and &lt;a href=&quot;https://wiki.c2.com/?CodeSmell&quot;&gt;code smells&lt;/a&gt;, such as &lt;a href=&quot;https://martinfowler.com/bliki/DataClump.html&quot;&gt;data clumps&lt;/a&gt; and &lt;a href=&quot;https://wiki.c2.com/?FeatureEnvySmell&quot;&gt;feature envy&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Applied properly, dependency injection gives us better modularity and helps us abide by the &lt;a href=&quot;https://martinfowler.com/articles/dipInTheWild.html&quot;&gt;dependency inversion principle&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/totheralistair&quot;&gt;Alistair Cockburn&lt;/a&gt;, on a talk named &lt;a href=&quot;https://youtu.be/th4AgBcrEHA&quot;&gt;Hexagone&lt;/a&gt;, suggests that we call this property &lt;em&gt;configurable dependency&lt;/em&gt; (which he attributed to &lt;a href=&quot;https://twitter.com/gerardmes&quot;&gt;Gerard Meszaros&lt;/a&gt;) instead. His rationale is that the name &lt;em&gt;dependency injection&lt;/em&gt; encourages doing it wrong first and then flipping and fixing it.&lt;/p&gt;
+&lt;p&gt;Back in 2008, &lt;a href=&quot;https://twitter.com/mhevery&quot;&gt;Miško Hevery&lt;/a&gt; gave a &lt;a href=&quot;https://www.youtube.com/user/GoogleTechTalks/search?query=The%20Clean%20Code%20Talks%20Misko&quot;&gt;series&lt;/a&gt; of talks at Google. In one in particular, titled &lt;a href=&quot;https://youtu.be/-FRm3VPhseI&quot;&gt;Global State and Singletons&lt;/a&gt;, Miško debunks common misconceptions in the &lt;a href=&quot;https://youtu.be/-FRm3VPhseI?t=1879&quot;&gt;Q&amp;amp;A&lt;/a&gt; section.&lt;/p&gt;
+</content>
+	</entry></feed>

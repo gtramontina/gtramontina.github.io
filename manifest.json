@@ -1,0 +1,20 @@
+{
+	"name": "gtramontina",
+	"short_name": "gtramontina",
+	"description": "Software Development Ramblings",
+	"icons": [
+		{
+			"src": "/icons/192x192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "/icons/512x512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	],
+	"theme_color": "#fff",
+	"background_color": "#fff",
+	"display": "fullscreen"
+}

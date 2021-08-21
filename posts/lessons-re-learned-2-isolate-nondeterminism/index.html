@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+	<title>gtramontina &bull; Lessons (re)learned: 2. Isolate Nondeterminism</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<meta name="description" content="Pushing nondeterminismt to the edges of the system">
+	<meta name="author" content="Guilherme J. Tramontina">
+	<meta property="og:title" content="Lessons (re)learned: 2. Isolate Nondeterminism">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://gtramontina.com/posts/lessons-re-learned-2-isolate-nondeterminism/">
+	<meta property="og:description" content="Pushing nondeterminismt to the edges of the system">
+	
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@gtramontina" />
+	<meta name="twitter:creator" content="@gtramontina" />
+	<meta name="twitter:title" content="Lessons (re)learned: 2. Isolate Nondeterminism">
+	
+	
+	<link rel="alternate" href="/feed.atom" title="gtramontina" type="application/atom+xml">
+	<link rel="icon" type="image/svg+xml" href="/icons/vector.svg">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icons/16x16.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icons/32x32.png">
+	<link rel="alternate icon" href="/favicon.ico">
+	<link rel="apple-touch-icon" sizes="180x180" href="/icons/180x180.png">
+	<link rel="manifest" href="/manifest.json">
+	<link rel="stylesheet" href="/stylesheet.css">
+</head>
+
+<body id="site">
+	<a id="skip-to-content" href="#site-content">
+		Skip to content
+	</a>
+
+	<header id="site-header">
+		<div id="site-header-content">
+			<a href="/" rel="home" title="Home">/gtramontina</a>
+			<nav id="site-nav">
+				<a href="/posts" rel="posts" title="Posts">Posts</a>
+				<a href="/about" rel="about" title="About">About</a>
+				<a href="/feed.atom" rel="alternate" title="RSS" type="application/atom+xml">RSS</a>
+			</nav>
+		</div>
+	</header>
+
+	<main id="site-content">
+		<article>
+<p id="post-metadata">
+	<a href="https://github.com/gtramontina/gtramontina.github.io/edit/source/posts/lessons-re-learned-2-isolate-nondeterminism.md" title="Edit">Edit</a><time datetime="Thu Mar 18 2021 02:00:00 GMT+0000 (Coordinated Universal Time)" title="Published on Mar 18, 2021">Mar 18, 2021</time>
+</p>
+<h1>Isolate Nondeterminism</h1>
+<p><em>Note: This post is part of the series <a href="/posts/lessons-re-learned-0">Lessons (re)learned</a>.</em></p>
+<p>Every system has sources of nondeterminism. We need to identify them and push them off to the boundaries, leveraging <a href="/posts/lessons-re-learned-0/#todo_inject-dependencies">dependency injection</a> in order to make use of them. Not controlling these sources of nondeterminism usually leads to test flakiness. <em>Time</em> and <em>random</em> are two very common sources of nondeterminism. In fact, any language-provided static functions are likely to be nondeterministic. <a href="/posts/lessons-re-learned-3-reduced-integration-surface">Third-party integrations</a> are definitely sources of nondeterminism.</p>
+<p><a href="https://www.davefarley.net/">Dave Farley</a>, from <a href="https://www.continuousdelivery.com/">Continuous Delivery</a>, released a really nice video titled &quot;<a href="https://www.youtube.com/watch?v=Xa6UEHyEyzQ">BDD Testing Time</a>&quot;. The technique demontrated there can be applied to other sources of nondeterminism as well.</p>
+<p>This idea flows naturally if we're practicing <a href="https://www.amazon.com.au/Test-Driven-Development-Kent-Beck/dp/0321146530">TDD</a>. It will have a nice side effect of making our codebase more modular and composable.</p>
+<p><a href="https://twitter.com/garybernhardt">Gary Bernhardt</a> has a really nice screencast titled <a href="https://www.destroyallsoftware.com/screencasts/catalog/functional-core-imperative-shell">Functional Core, Imperative Shell</a> where he presents a very interesting way of thinking about this.</p>
+
+
+		</article>
+<aside id="hypothesis-annotations">
+	<button data-hypothesis-trigger>
+		Show Annotations/Comments (<span data-hypothesis-annotation-count>…</span>)
+	</button>
+
+	<script>
+		window.hypothesisConfig = () => {
+			const style = getComputedStyle(document.documentElement);
+			const colorRGBLink = style.getPropertyValue('--color-rgb-link');
+			const colorRGBBackground = style.getPropertyValue('--color-rgb-background');
+
+			return {
+				theme: "clean",
+				enableExperimentalNewNoteButton: true,
+				branding: {
+					accentColor: `rgb(${colorRGBLink})`,
+					ctaBackgroundColor: `rgb(${colorRGBLink})`,
+					ctaTextColor: `rgb(${colorRGBBackground})`,
+				},
+			};
+		};
+	</script>
+	<script src="//hypothes.is/embed.js" async></script>
+</aside>
+
+	</main>
+
+	<footer id="site-footer">
+		<div id="site-footer-content">Original articles on this site are CC <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode">BY-NC-SA</a> licensed unless otherwise stated.</div>
+	</footer>
+</body>
+</html>

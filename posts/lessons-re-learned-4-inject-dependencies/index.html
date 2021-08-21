@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+	<title>gtramontina &bull; Lessons (re)learned: 4. Inject Dependencies</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<meta name="description" content="Applying inversion of control and dependency inversion">
+	<meta name="author" content="Guilherme J. Tramontina">
+	<meta property="og:title" content="Lessons (re)learned: 4. Inject Dependencies">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://gtramontina.com/posts/lessons-re-learned-4-inject-dependencies/">
+	<meta property="og:description" content="Applying inversion of control and dependency inversion">
+	
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@gtramontina" />
+	<meta name="twitter:creator" content="@gtramontina" />
+	<meta name="twitter:title" content="Lessons (re)learned: 4. Inject Dependencies">
+	
+	
+	<link rel="alternate" href="/feed.atom" title="gtramontina" type="application/atom+xml">
+	<link rel="icon" type="image/svg+xml" href="/icons/vector.svg">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icons/16x16.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icons/32x32.png">
+	<link rel="alternate icon" href="/favicon.ico">
+	<link rel="apple-touch-icon" sizes="180x180" href="/icons/180x180.png">
+	<link rel="manifest" href="/manifest.json">
+	<link rel="stylesheet" href="/stylesheet.css">
+</head>
+
+<body id="site">
+	<a id="skip-to-content" href="#site-content">
+		Skip to content
+	</a>
+
+	<header id="site-header">
+		<div id="site-header-content">
+			<a href="/" rel="home" title="Home">/gtramontina</a>
+			<nav id="site-nav">
+				<a href="/posts" rel="posts" title="Posts">Posts</a>
+				<a href="/about" rel="about" title="About">About</a>
+				<a href="/feed.atom" rel="alternate" title="RSS" type="application/atom+xml">RSS</a>
+			</nav>
+		</div>
+	</header>
+
+	<main id="site-content">
+		<article>
+<p id="post-metadata">
+	<a href="https://github.com/gtramontina/gtramontina.github.io/edit/source/posts/lessons-re-learned-4-inject-dependencies.md" title="Edit">Edit</a><time datetime="Wed Jul 28 2021 07:30:00 GMT+0000 (Coordinated Universal Time)" title="Published on Jul 28, 2021">Jul 28, 2021</time>
+</p>
+<h1>Inject Dependencies</h1>
+<p><em>Note: This post is part of the series <a href="/posts/lessons-re-learned-0">Lessons (re)learned</a>.</em></p>
+<p>When writing software following the object-oriented <a href="https://en.wikipedia.org/wiki/Programming_paradigm">paradigm</a>, <a href="https://martinfowler.com/articles/injection.html">dependency injection</a> remains one useful technique, regardless of language.</p>
+<p>As mentioned in the post titled <a href="/posts/lessons-re-learned-3-reduced-integration-surface">Reduced Integration Surface</a>, managing dependencies is key to sustainable software development. One practice that helps us better do that is to separate <em>construction</em> logic from <em>business</em> logic. Usually, construction takes place in the software entry point, where we declare and wire up the entire dependency graph.</p>
+<p>One interesting effect of injecting dependencies is that it makes them explicit. In turn, we get better insights on the <a href="https://en.wikipedia.org/wiki/Abstraction_layer">levels of abstraction</a> and <a href="https://wiki.c2.com/?CodeSmell">code smells</a>, such as <a href="https://martinfowler.com/bliki/DataClump.html">data clumps</a> and <a href="https://wiki.c2.com/?FeatureEnvySmell">feature envy</a>.</p>
+<p>Applied properly, dependency injection gives us better modularity and helps us abide by the <a href="https://martinfowler.com/articles/dipInTheWild.html">dependency inversion principle</a>.</p>
+<p><a href="https://twitter.com/totheralistair">Alistair Cockburn</a>, on a talk named <a href="https://youtu.be/th4AgBcrEHA">Hexagone</a>, suggests that we call this property <em>configurable dependency</em> (which he attributed to <a href="https://twitter.com/gerardmes">Gerard Meszaros</a>) instead. His rationale is that the name <em>dependency injection</em> encourages doing it wrong first and then flipping and fixing it.</p>
+<p>Back in 2008, <a href="https://twitter.com/mhevery">Miško Hevery</a> gave a <a href="https://www.youtube.com/user/GoogleTechTalks/search?query=The%20Clean%20Code%20Talks%20Misko">series</a> of talks at Google. In one in particular, titled <a href="https://youtu.be/-FRm3VPhseI">Global State and Singletons</a>, Miško debunks common misconceptions in the <a href="https://youtu.be/-FRm3VPhseI?t=1879">Q&amp;A</a> section.</p>
+
+
+		</article>
+<aside id="hypothesis-annotations">
+	<button data-hypothesis-trigger>
+		Show Annotations/Comments (<span data-hypothesis-annotation-count>…</span>)
+	</button>
+
+	<script>
+		window.hypothesisConfig = () => {
+			const style = getComputedStyle(document.documentElement);
+			const colorRGBLink = style.getPropertyValue('--color-rgb-link');
+			const colorRGBBackground = style.getPropertyValue('--color-rgb-background');
+
+			return {
+				theme: "clean",
+				enableExperimentalNewNoteButton: true,
+				branding: {
+					accentColor: `rgb(${colorRGBLink})`,
+					ctaBackgroundColor: `rgb(${colorRGBLink})`,
+					ctaTextColor: `rgb(${colorRGBBackground})`,
+				},
+			};
+		};
+	</script>
+	<script src="//hypothes.is/embed.js" async></script>
+</aside>
+
+	</main>
+
+	<footer id="site-footer">
+		<div id="site-footer-content">Original articles on this site are CC <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode">BY-NC-SA</a> licensed unless otherwise stated.</div>
+	</footer>
+</body>
+</html>

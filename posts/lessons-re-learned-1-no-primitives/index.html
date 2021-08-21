@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+	<title>gtramontina &bull; Lessons (re)learned: 1. No Primitives</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<meta name="description" content="Fighting primitive obsession">
+	<meta name="author" content="Guilherme J. Tramontina">
+	<meta property="og:title" content="Lessons (re)learned: 1. No Primitives">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://gtramontina.com/posts/lessons-re-learned-1-no-primitives/">
+	<meta property="og:description" content="Fighting primitive obsession">
+	
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@gtramontina" />
+	<meta name="twitter:creator" content="@gtramontina" />
+	<meta name="twitter:title" content="Lessons (re)learned: 1. No Primitives">
+	
+	
+	<link rel="alternate" href="/feed.atom" title="gtramontina" type="application/atom+xml">
+	<link rel="icon" type="image/svg+xml" href="/icons/vector.svg">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icons/16x16.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icons/32x32.png">
+	<link rel="alternate icon" href="/favicon.ico">
+	<link rel="apple-touch-icon" sizes="180x180" href="/icons/180x180.png">
+	<link rel="manifest" href="/manifest.json">
+	<link rel="stylesheet" href="/stylesheet.css">
+</head>
+
+<body id="site">
+	<a id="skip-to-content" href="#site-content">
+		Skip to content
+	</a>
+
+	<header id="site-header">
+		<div id="site-header-content">
+			<a href="/" rel="home" title="Home">/gtramontina</a>
+			<nav id="site-nav">
+				<a href="/posts" rel="posts" title="Posts">Posts</a>
+				<a href="/about" rel="about" title="About">About</a>
+				<a href="/feed.atom" rel="alternate" title="RSS" type="application/atom+xml">RSS</a>
+			</nav>
+		</div>
+	</header>
+
+	<main id="site-content">
+		<article>
+<p id="post-metadata">
+	<a href="https://github.com/gtramontina/gtramontina.github.io/edit/source/posts/lessons-re-learned-1-no-primitives.md" title="Edit">Edit</a><time datetime="Thu Mar 18 2021 01:00:00 GMT+0000 (Coordinated Universal Time)" title="Published on Mar 18, 2021">Mar 18, 2021</time>
+</p>
+<h1>No Primitives</h1>
+<p><em>Note: This post is part of the series <a href="/posts/lessons-re-learned-0">Lessons (re)learned</a>.</em></p>
+<p>Here's a relatively well known code smell: <a href="https://wiki.c2.com/?PrimitiveObsession">Primitive Obsession</a>. It is always very tempting — and some claim &quot;quicker&quot; — to use primitives instead of creating new types. When we do this, we're probably missing an opportunity to model a concept of the domain we're working with — or, at least, to raise the abstraction level a little bit.</p>
+<p>Writing validation routines is usually a good indication that we might have missed a concept. We'll need to <em>remember</em> to always validate in every place we interact with that particular concept to ensure its correctness. If we have to remember, we're bound to forget.</p>
+<p>It is very likely that our domain has rules around certain concepts, for example:</p>
+<ul>
+<li><strong>Age</strong>: we probably want the concept of <em>age</em> to be modeled in a way that it represents time being alive (in years, or perhaps months or weeks if it makes sense in our domain); it probably needs to be positive. It is not just any <code>number</code>.</li>
+<li><strong>Email</strong>: it is very likely it needs to be in the <code>john@doe.com</code> format. Maybe we want to have a name attached to it in the form of <code>Jane Doe &lt;jane@doe.com&gt;</code>. So it is not just any <code>string</code>.</li>
+<li><strong>Money</strong>: it needs a <code>Currency</code> (which itself is not only a <code>string</code>) in order for it to make sense. We may want to capture the <code>amount</code> in cents. Math operations can only be performed on moneys of the same currency. So <code>Money</code> is not just a <code>number</code>.</li>
+</ul>
+<p>We can always compose them to raise the abstraction level even more and enrich our domain models. For example, an <code>Account</code> model could be raised as <code>SourceAccount</code> and <code>DestinationAccount</code> when dealing with bank account transfers.</p>
+<p>Defining types also helps us to address certain types of <a href="https://en.wikipedia.org/wiki/Connascence">connascence</a>. Given the following example method:</p>
+<pre><code>save(productID string, name string)
+// interface: save(string, string)
+</code></pre>
+<p>An honest mistake one can make is to invoke it with the order of the parameters reversed. If we raise the abstration level a bit and do:</p>
+<pre><code>save(id ProductID, name ProductName)
+// interface: save(ProductID, ProductName)
+</code></pre>
+<p>Now we don't need to depend on knowing the internal variable names nor parameter order. This is especially beneficial on compiled languages or languages with type hints.</p>
+<p>This subject also touches on the idea of making illegal states unrepresentable. I can't really recall where I first heard or read about it, but here's a couple of resources:</p>
+<ul>
+<li><a href="https://blog.janestreet.com/effective-ml-revisited/">Effective ML Revisited</a> by <a href="https://twitter.com/yminsky">Yaron Minsky</a></li>
+<li><a href="https://www.youtube.com/watch?v=IcgmSRJHu_8">Making Impossible States Impossible</a> by <a href="https://twitter.com/rtfeldman">Richard Feldman</a></li>
+</ul>
+<p>In <a href="https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215">DDD</a> lingo, these models are known as <a href="https://martinfowler.com/bliki/ValueObject.html">Value Objects</a> and are considered the building blocks of our domain. I've also seen these being called <a href="https://markhneedham.com/blog/2009/03/10/oo-micro-types/">Micro Types</a> or <a href="https://darrenhobbs.com/2007/04/11/tiny-types/">Tiny Types</a>.</p>
+
+
+		</article>
+<aside id="hypothesis-annotations">
+	<button data-hypothesis-trigger>
+		Show Annotations/Comments (<span data-hypothesis-annotation-count>…</span>)
+	</button>
+
+	<script>
+		window.hypothesisConfig = () => {
+			const style = getComputedStyle(document.documentElement);
+			const colorRGBLink = style.getPropertyValue('--color-rgb-link');
+			const colorRGBBackground = style.getPropertyValue('--color-rgb-background');
+
+			return {
+				theme: "clean",
+				enableExperimentalNewNoteButton: true,
+				branding: {
+					accentColor: `rgb(${colorRGBLink})`,
+					ctaBackgroundColor: `rgb(${colorRGBLink})`,
+					ctaTextColor: `rgb(${colorRGBBackground})`,
+				},
+			};
+		};
+	</script>
+	<script src="//hypothes.is/embed.js" async></script>
+</aside>
+
+	</main>
+
+	<footer id="site-footer">
+		<div id="site-footer-content">Original articles on this site are CC <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode">BY-NC-SA</a> licensed unless otherwise stated.</div>
+	</footer>
+</body>
+</html>
