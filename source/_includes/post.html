@@ -1,0 +1,7 @@
+---
+layout: base.html
+---
+<p id="post-metadata">
+	<a href="{{ ['edit/', page.inputPath] | join | urlAbsolute(site.sourceURL) }}" title="Edit">Edit</a><time datetime="{{ date  }}" title="Published on {{ date | dateFormatYYYY_MM_DD }}">{{ date | dateFormatYYYY_MM_DD }}</time>
+</p>
+{{ content | safe }}

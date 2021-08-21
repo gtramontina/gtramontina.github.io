@@ -1,0 +1,24 @@
+<aside id="hypothesis-annotations">
+	<button data-hypothesis-trigger>
+		Show Annotations/Comments (<span data-hypothesis-annotation-count>…</span>)
+	</button>
+
+	<script>
+		window.hypothesisConfig = () => {
+			const style = getComputedStyle(document.documentElement);
+			const colorRGBLink = style.getPropertyValue('--color-rgb-link');
+			const colorRGBBackground = style.getPropertyValue('--color-rgb-background');
+
+			return {
+				theme: "clean",
+				enableExperimentalNewNoteButton: true,
+				branding: {
+					accentColor: `rgb(${colorRGBLink})`,
+					ctaBackgroundColor: `rgb(${colorRGBLink})`,
+					ctaTextColor: `rgb(${colorRGBBackground})`,
+				},
+			};
+		};
+	</script>
+	<script src="//hypothes.is/embed.js" async></script>
+</aside>

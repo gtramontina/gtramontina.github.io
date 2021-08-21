@@ -1,21 +1,19 @@
 version: "3"
 services:
-  hugo-build:
-    image: klakegg/hugo:0.81.0-ext-alpine
-    volumes:
-      - .:/src
-      - ./public:/target
 
-  hugo-shell:
-    image: klakegg/hugo:0.81.0-ext-alpine
-    command: shell
+  build:
+    build: .
+    environment:
+      - DEBUG=*
     volumes:
-      - .:/src
+      - .:/app
 
-  hugo-server:
-    image: klakegg/hugo:0.81.0-ext-alpine
-    command: server -D
+  server:
+    build: .
+    environment:
+      - NODE_ENV=development
     volumes:
-      - .:/src
+      - .:/app
+    command: --serve
     ports:
-      - 1313:1313
+      - 8080:8080
