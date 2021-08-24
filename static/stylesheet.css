@@ -309,7 +309,8 @@ img {
 #hypothesis-annotations {
 	display: flex;
 	flex-direction: row;
-	margin: var(--spacing-large) 0;
+	margin: var(--spacing-large) 0 0 0;
+	padding: var(--spacing-large) 0 0 0;
 	justify-content: center;
 }
 
