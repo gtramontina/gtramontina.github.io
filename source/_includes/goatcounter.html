@@ -1,4 +1,5 @@
 {% if not site.isDevelopment %}
 <script>if (window.location.origin !== "{{ site.url }}") window.goatcounter = { no_onload: true }</script>
 <script data-goatcounter="https://gtramontina.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<noscript><img src="https://gtramontina.goatcounter.com/count?p={{ page.url }}"></noscript>
 {% endif %}
