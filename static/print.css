@@ -1,0 +1,44 @@
+:root {
+	--max-width: 100%;
+}
+
+@page {
+	margin: 2cm;
+}
+
+#site-header,
+#site-footer,
+#hypothesis-annotations,
+[rel="edit-post"] {
+	display: none;
+}
+
+a {
+	text-decoration: none;
+	color: rgb(var(--color-rgb-foreground));
+	pointer-events: none;
+}
+
+#site-content {
+	columns: 2;
+	column-gap: 1cm;
+	column-fill: balance;
+	padding: 0;
+}
+
+#site-content a[href]::after {
+	content: " (" attr(href) ")";
+	font-family: var(--font-family-monospaced);
+	font-size: var(--font-size-small);
+	text-decoration: none;
+}
+
+p {
+	overflow-wrap: break-word;
+}
+
+ul,
+ol,
+blockquote {
+  page-break-inside: avoid;
+}
