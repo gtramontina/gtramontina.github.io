@@ -7,6 +7,8 @@ module.exports = function(config) {
 	config.addFilter("dateISO", custom.dateISO);
 	config.addFilter("collectionNewestDateItem", custom.collectionNewestDateItem);
 	config.addFilter("urlAbsolute", custom.urlAbsolute);
+	config.addFilter("encodeURI", custom.encodeURI);
+	config.addFilter("includes", custom.includes);
 	config.addFilter("collectionLive", custom.collectionLive);
 	config.addFilter("collectionDraft", custom.collectionDraft);
 	config.addFilter("collectionNotDraft", custom.collectionNotDraft);

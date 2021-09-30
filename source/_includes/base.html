@@ -4,19 +4,11 @@
 	<title>{{ site.title }}{% if title %} &bull; {{ title }}{% endif %}</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-	<meta name="description" content="{{ description }}">
-	<meta name="author" content="{{ site.author.name }}">
-	<meta property="og:title" content="{{ title }}">
-	<meta property="og:type" content="website">
-	<meta property="og:url" content="{{ page.url | urlAbsolute(site.url)  }}">
-	<meta property="og:description" content="{{ description }}">
-	{# <meta property="og:image" content="{{ todo }}"> #}
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:site" content="{{ site.author.twitter }}" />
-	<meta name="twitter:creator" content="{{ site.author.twitter }}" />
-	<meta name="twitter:title" content="{{ title }}">
-	{# <meta name="twitter:image" content="{{ todo }}"> #}
-	{# <meta name="twitter:image:alt" content="{{ title }}: {{ description }}"> #}
+	{% if tags | includes("post") %}
+	{% include "post-seo.html" %}
+	{% else %}
+	{% include "base-seo.html" %}
+	{% endif %}
 	<link rel="alternate" href="/feed.atom" title="{{ site.title }}" type="application/atom+xml">
 	<link rel="icon" type="image/svg+xml" href="/icons/vector.svg">
 	<link rel="icon" type="image/png" sizes="16x16" href="/icons/16x16.png">

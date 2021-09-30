@@ -1,0 +1,15 @@
+<meta name="description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
+<meta name="author" content="{{ site.author.name }}">
+<meta name="image" content="{{ "/icons/padded.png" | urlAbsolute(site.url) }}" />
+<meta itemprop="image" content="{{ "/icons/padded.png" | urlAbsolute(site.url) }}" />
+<meta property="og:title" content="{% if title %}{{ title }}{% else %}{{ site.title }}{% endif %}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ page.url | urlAbsolute(site.url)  }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:image" content="{{ "/icons/padded.png" | urlAbsolute(site.url) }}" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="{{ site.author.twitter }}" />
+<meta name="twitter:creator" content="{{ site.author.twitter }}" />
+<meta name="twitter:title" content="{% if title %}{{ title }}{% else %}{{ site.title }}{% endif %}">
+<meta name="twitter:image" content="{{ "/icons/padded.png" | urlAbsolute(site.url) }}" />
+<meta name="twitter:image:alt" content="{% if title %}{{ title }}{% else %}{{ site.title }}{% endif %}, by {{ site.author.twitter }}">
