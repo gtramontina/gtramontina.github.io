@@ -11,4 +11,6 @@ draft: true
 
 _Note: This post is part of the series [Lessons (re)learned](/posts/lessons-re-learned-0)._
 
-A lot has been said about the perils of using _getters_ and _setters_—also known as _accessors_ and _mutators_—in object oriented software. To cite a couple: [Allen Holub](https://holub.com/), back in 2003, published "[Why getter and setter methods are evil](https://www.infoworld.com/article/2073723/why-getter-and-setter-methods-are-evil.html)"; [Yegor Bugayenko](https://www.yegor256.com/), a decate later, wrote "[Getters/Setters. Evil. Period.](https://www.yegor256.com/2014/09/16/getters-and-setters-are-evil.html)".
+A lot has been said about the perils of using _getters_ and _setters_—also known as _accessors_ and _mutators_—in object oriented software. To cite a couple: [Allen Holub](https://holub.com/), back in 2003, published "[Why getter and setter methods are evil](https://www.infoworld.com/article/2073723/why-getter-and-setter-methods-are-evil.html)" and [Yegor Bugayenko](https://www.yegor256.com/), a decate later, wrote "[Getters/Setters. Evil. Period.](https://www.yegor256.com/2014/09/16/getters-and-setters-are-evil.html)". However, a lot more has been said encouraging the use of such patterns. So much I'll
+
+By avoiding the usage of such common patterns, The underlying property that
