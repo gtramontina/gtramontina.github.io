@@ -5,7 +5,7 @@
 <meta property="og:title" content="{% if title %}{{ title }}{% else %}{{ site.title }}{% endif %}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ page.url | urlAbsolute(site.url)  }}">
-<meta property="og:description" content="{{ description }}">
+<meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
 <meta property="og:image" content="{{ "/icons/padded.png" | urlAbsolute(site.url) }}" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="{{ site.author.twitter }}" />
