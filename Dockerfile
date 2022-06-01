@@ -1,2 +1,2 @@
-FROM femtopixel/eleventy:v1.0.0-canary.39-i386
-COPY --from=ghcr.io/gtramontina/svgbob:0.5.3 /svgbob /bin/svgbob
+FROM femtopixel/eleventy:v2.0.0-canary.11-arm64v8
+COPY --from=ghcr.io/gtramontina/svgbob:0.6.6 /svgbob /bin/svgbob
