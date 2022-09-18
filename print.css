@@ -9,6 +9,9 @@
 #site-header,
 #site-footer,
 #hypothesis-annotations,
+hypothesis-sidebar,
+hypothesis-notebook,
+hypothesis-adder,
 [rel="edit-post"] {
 	display: none;
 }
