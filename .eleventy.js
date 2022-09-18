@@ -1,7 +1,7 @@
 const custom = require("./custom");
 
 module.exports = function(config) {
-  config.addPassthroughCopy({ "static": "/" });
+	config.addPassthroughCopy({ "static": "/" });
 	config.addPairedNunjucksAsyncShortcode("svgbob", custom.svgbob);
 	config.addFilter("dateFormatYYYY_MM_DD", custom.dateFormatYYYY_MM_DD);
 	config.addFilter("dateISO", custom.dateISO);
