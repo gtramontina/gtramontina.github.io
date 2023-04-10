@@ -22,7 +22,7 @@ This series is somewhat open-ended, as I intend to keep making adjustments and a
 1. [Isolate Nondeterminism](/posts/lessons-re-learned-2-isolate-nondeterminism)
 1. [Reduced Integration Surface](/posts/lessons-re-learned-3-reduced-integration-surface)
 1. [Inject Dependencies](/posts/lessons-re-learned-4-inject-dependencies)
-1. <span id="todo_no-getters-nor-setters">_(planned)_ No Getters Nor Setters</span>
+1. [No Getters Nor Setters](/posts/lessons-re-learned-5-no-getters-nor-setters)
 1. <span id="todo_own-your-interfaces">_(planned)_ Own Your Interfaces</span>
 1. <span id="todo_only-one-return-type">_(planned)_ Only One Return Type</span>
 1. <span id="todo_avoid-private-methods">_(planned)_ Avoid Private Methods</span>
