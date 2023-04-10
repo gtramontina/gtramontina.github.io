@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en-us" class="draft">
+<html lang="en-us">
 <head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
 	<title>gtramontina &bull; Lessons (re)learned: 5. No Getters Nor Setters</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 	
-	<meta name="description" content="Understanding encapsulation and cohesiveness">
+	<meta name="description" content="Understanding encapsulation, coupling and cohesion">
 <meta name="author" content="Guilherme J. Tramontina">
 <meta name="image" content="https://i.microlink.io/https%3A%2F%2Fcards.microlink.io%2F%3Fpreset%3Dmikesanroman%26p%3DDwPgUABBwDIJYDsDWkoQBYCcCmAzAvAOToAuJADgM4BcA9LbgPYImUB0A5o4xwDbYBDcnHYBjRgFtaoypQBMAflwCJcXgE98ABV4D1yuJgDUAERHld6gGQATc5fwAjXo1FJCqKDl5FKJdfyU6NjYJB5QtOBQwABi-AAenhCU8fgA3mlJUI4CbhyYjACuCDYAwowumNQQhADEMQ2EADRZEEwsMSpq6tWEOnoGmBBmlBZ6za3tJADKcABe2NUAbAAsLWhouAlmOKIkcMy94ryFEggTG1AAVoV%252BcLjq5SzYLEcvJNiYF5fkjJRw%252B0ONW8An2ADdsN8NhZlmtWuRHNUVgAGdY-KoQFFojbBOAcUi9ACMyORAFJwmgAL6U1BRNDAAAq2HiJFaKXSmUuaAkAniAHU4DYSOhqgBWADsS2xl14iGwAAlsHiCRBCWw5NKNsdGBi6gBmA0UjbUpJ0jZpACOhU%252B6jY%252BxI-BpG2AtCZLPASWAACFGIkuQJKEQ4BIOEa0JRMKIiKQKDR6BwRCROAD0IVHLdPuJniw2OIpBwSJgVMx9ggBLQVqJCTZsKJcNhHKsBMi9aJsABOAAcdZsohsqzw4r1clwyNoRYA7rRh%252BL2%252BKbMiR6LHCs9e2BNgbDZHLh%252B3J26J13JRYSVv32%252B3h4Slu3aAWixIS4gBLnJGxKGDQ2zUhlWlABLKHAINM2C8LgvRbMyAC0Lw2FClw3HcDwgWBEEJDBJTwRsdijJYvTOK47iamgvz-ICCC9AIjiUBUhQfFhaAToKwrVISoqdsRUC4viJBIhxf4QI4jBkJISKogJmDKrxmLIq0JobJEqAunEzLgC6IBAA%26title%3DLessons%20(re)learned:%205.%20No%20Getters%20Nor%20Setters" />
 <meta itemprop="image" content="https://i.microlink.io/https%3A%2F%2Fcards.microlink.io%2F%3Fpreset%3Dmikesanroman%26p%3DDwPgUABBwDIJYDsDWkoQBYCcCmAzAvAOToAuJADgM4BcA9LbgPYImUB0A5o4xwDbYBDcnHYBjRgFtaoypQBMAflwCJcXgE98ABV4D1yuJgDUAERHld6gGQATc5fwAjXo1FJCqKDl5FKJdfyU6NjYJB5QtOBQwABi-AAenhCU8fgA3mlJUI4CbhyYjACuCDYAwowumNQQhADEMQ2EADRZEEwsMSpq6tWEOnoGmBBmlBZ6za3tJADKcABe2NUAbAAsLWhouAlmOKIkcMy94ryFEggTG1AAVoV%252BcLjq5SzYLEcvJNiYF5fkjJRw%252B0ONW8An2ADdsN8NhZlmtWuRHNUVgAGdY-KoQFFojbBOAcUi9ACMyORAFJwmgAL6U1BRNDAAAq2HiJFaKXSmUuaAkAniAHU4DYSOhqgBWADsS2xl14iGwAAlsHiCRBCWw5NKNsdGBi6gBmA0UjbUpJ0jZpACOhU%252B6jY%252BxI-BpG2AtCZLPASWAACFGIkuQJKEQ4BIOEa0JRMKIiKQKDR6BwRCROAD0IVHLdPuJniw2OIpBwSJgVMx9ggBLQVqJCTZsKJcNhHKsBMi9aJsABOAAcdZsohsqzw4r1clwyNoRYA7rRh%252BL2%252BKbMiR6LHCs9e2BNgbDZHLh%252B3J26J13JRYSVv32%252B3h4Slu3aAWixIS4gBLnJGxKGDQ2zUhlWlABLKHAINM2C8LgvRbMyAC0Lw2FClw3HcDwgWBEEJDBJTwRsdijJYvTOK47iamgvz-ICCC9AIjiUBUhQfFhaAToKwrVISoqdsRUC4viJBIhxf4QI4jBkJISKogJmDKrxmLIq0JobJEqAunEzLgC6IBAA%26title%3DLessons%20(re)learned:%205.%20No%20Getters%20Nor%20Setters" />
 <meta property="og:title" content="Lessons (re)learned: 5. No Getters Nor Setters">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://gtramontina.com/posts/lessons-re-learned-5-no-getters-nor-setters/">
-<meta property="og:description" content="Understanding encapsulation and cohesiveness">
+<meta property="og:description" content="Understanding encapsulation, coupling and cohesion">
 <meta property="og:image" content="https://i.microlink.io/https%3A%2F%2Fcards.microlink.io%2F%3Fpreset%3Dmikesanroman%26p%3DDwPgUABBwDIJYDsDWkoQBYCcCmAzAvAOToAuJADgM4BcA9LbgPYImUB0A5o4xwDbYBDcnHYBjRgFtaoypQBMAflwCJcXgE98ABV4D1yuJgDUAERHld6gGQATc5fwAjXo1FJCqKDl5FKJdfyU6NjYJB5QtOBQwABi-AAenhCU8fgA3mlJUI4CbhyYjACuCDYAwowumNQQhADEMQ2EADRZEEwsMSpq6tWEOnoGmBBmlBZ6za3tJADKcABe2NUAbAAsLWhouAlmOKIkcMy94ryFEggTG1AAVoV%252BcLjq5SzYLEcvJNiYF5fkjJRw%252B0ONW8An2ADdsN8NhZlmtWuRHNUVgAGdY-KoQFFojbBOAcUi9ACMyORAFJwmgAL6U1BRNDAAAq2HiJFaKXSmUuaAkAniAHU4DYSOhqgBWADsS2xl14iGwAAlsHiCRBCWw5NKNsdGBi6gBmA0UjbUpJ0jZpACOhU%252B6jY%252BxI-BpG2AtCZLPASWAACFGIkuQJKEQ4BIOEa0JRMKIiKQKDR6BwRCROAD0IVHLdPuJniw2OIpBwSJgVMx9ggBLQVqJCTZsKJcNhHKsBMi9aJsABOAAcdZsohsqzw4r1clwyNoRYA7rRh%252BL2%252BKbMiR6LHCs9e2BNgbDZHLh%252B3J26J13JRYSVv32%252B3h4Slu3aAWixIS4gBLnJGxKGDQ2zUhlWlABLKHAINM2C8LgvRbMyAC0Lw2FClw3HcDwgWBEEJDBJTwRsdijJYvTOK47iamgvz-ICCC9AIjiUBUhQfFhaAToKwrVISoqdsRUC4viJBIhxf4QI4jBkJISKogJmDKrxmLIq0JobJEqAunEzLgC6IBAA%26title%3DLessons%20(re)learned:%205.%20No%20Getters%20Nor%20Setters" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@gtramontina" />
@@ -60,12 +60,27 @@
 	<main id="site-content">
 		<article>
 <p id="post-metadata">
-	<a href="https://github.com/gtramontina/gtramontina.github.io/edit/source/source/posts/lessons-re-learned-5-no-getters-nor-setters.md" rel="edit-post" title="Edit">Edit</a><time datetime="Fri Mar 19 2021 05:00:00 GMT+0000 (Coordinated Universal Time)" title="Published on Mar 19, 2021">Mar 19, 2021</time>
+	<a href="https://github.com/gtramontina/gtramontina.github.io/edit/source/source/posts/lessons-re-learned-5-no-getters-nor-setters.md" rel="edit-post" title="Edit">Edit</a><time datetime="Mon Apr 10 2023 09:00:00 GMT+0000 (Coordinated Universal Time)" title="Published on Apr 10, 2023">Apr 10, 2023</time>
 </p>
 <h1>No Getters nor Setters</h1>
 <p><em>Note: This post is part of the series <a href="/posts/lessons-re-learned-0">Lessons (re)learned</a>.</em></p>
-<p>A lot has been said about the perils of using <em>getters</em> and <em>setters</em>—also known as <em>accessors</em> and <em>mutators</em>—in object oriented software. To cite a couple: <a href="https://holub.com/">Allen Holub</a>, back in 2003, published &quot;<a href="https://www.infoworld.com/article/2073723/why-getter-and-setter-methods-are-evil.html">Why getter and setter methods are evil</a>&quot; and <a href="https://www.yegor256.com/">Yegor Bugayenko</a>, a decate later, wrote &quot;<a href="https://www.yegor256.com/2014/09/16/getters-and-setters-are-evil.html">Getters/Setters. Evil. Period.</a>&quot;. However, a lot more has been said encouraging the use of such patterns. So much I'll</p>
-<p>By avoiding the usage of such common patterns, The underlying property that</p>
+<p>A lot has been said about the perils of using <em>getters</em> and <em>setters</em>—also known as <em>accessors</em> and <em>mutators</em>—in object-oriented software. To cite a couple, <a href="https://holub.com/">Allen Holub</a>, back in 2003, published &quot;<a href="https://www.infoworld.com/article/2073723/why-getter-and-setter-methods-are-evil.html">Why getter and setter methods are evil</a>&quot; and <a href="https://www.yegor256.com/">Yegor Bugayenko</a>, a decade later, wrote &quot;<a href="https://www.yegor256.com/2014/09/16/getters-and-setters-are-evil.html">Getters/Setters. Evil. Period.</a>&quot;. However, a lot more has been said—or rather, suggested—encouraging the use of such (anti?)patterns. So much so that I'll refrain from linking here. Suffice to say that pretty much any OO example out there makes use if them.</p>
+<p>The terms coupling, cohesion, encapsulation, information hiding, modularity all come up when discussing this topic. And there's a good reason for that: together, they enable malleability e evolvability to software systems. In other words, they help us build software that can be easily changed.</p>
+<p>Majority, if not all, cases can be categorized as either a <em>command</em> or a <em>query</em>—also known as <a href="https://martinfowler.com/bliki/CommandQuerySeparation.html">Command-Query Separation (CQS)</a>. This means that we're either probing the system for information or changing the system state.</p>
+<p>In the conversation &quot;<a href="https://www.youtube.com/watch?v=hd0v72pD1MI">Understanding Coupling and Cohesion</a>&quot;, led by <a href="https://twitter.com/jbrains">J. B. Rainsberger</a>, the meaning of coupling and cohesion is explored. <a href="https://dhemery.com">Dale Emery</a> points out something interesting:</p>
+<blockquote>
+<p>To couple means to fasten together. And to cohere means to stick together. (…) it seems to me that the difference is in whether the forces that bind the things are inherent in the things themselves or imposed externally.</p>
+</blockquote>
+<p>I found this to be quite insightful. They also reference <a href="https://vanderburg.org/">Glenn Vanderburg</a>'s &quot;<a href="https://vanderburg.org/blog/2011/01/31/cohesion.html">Cohesion</a>&quot; blog post, in which the author explains <em>cohesion</em> by contrasting it with <em>adhesion</em>, a more common term.</p>
+<p>Also, in this same conversation, the late <a href="https://en.wikipedia.org/wiki/Jim_Weirich">Jim Weirich</a> brings up <a href="https://skillsmatter.com/skillscasts/896-jim-weirich-grand-unified-theory-of-software">connascence</a>: a way of categorizing the different types of coupling. A more comprehensive collection of resources about it can be found at <a href="https://connascence.io/pages/about.html">connascence.io</a>.</p>
+<p>This seems to be one of those habits that form real quick—especially when the great majority of examples out there make use of it—and can be hard to unlearn. So, I try to tame it. Whenever I feel like writing a getter or setter, I stop and ask myself:</p>
+<ul>
+<li>Why do I want to get this <em>data</em> from this <em>object</em>?</li>
+<li>What do I want to <em>do</em> with this <em>data</em>?</li>
+<li>Why do I want to set this <em>data</em> in this <em>object</em>?</li>
+<li>Where do I want to keep this <em>behavior</em>?</li>
+<li>Given the <em>object</em> already holds the <em>data</em>, can I <a href="https://web.archive.org/web/20070819141746/http://www.pragmaticprogrammer.com/ppllc/papers/1998_05.html">tell</a> it to <em>do</em> something instead?</li>
+</ul>
 
 
 		</article>

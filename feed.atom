@@ -4,7 +4,7 @@
 	<subtitle>Software Development Ramblings</subtitle>
 	<link href="https://gtramontina.com/feed.atom" rel="self"/>
 	<link href="https://gtramontina.com"/>
-	<updated>2021-07-28T07:30:00.000Z</updated>
+	<updated>2023-04-10T09:00:00.000Z</updated>
 	<id>https://gtramontina.com</id>
 	<author>
 		<name>Guilherme J. Tramontina</name>
@@ -68,7 +68,7 @@
 &lt;li&gt;&lt;a href=&quot;/posts/lessons-re-learned-2-isolate-nondeterminism&quot;&gt;Isolate Nondeterminism&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;/posts/lessons-re-learned-3-reduced-integration-surface&quot;&gt;Reduced Integration Surface&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;/posts/lessons-re-learned-4-inject-dependencies&quot;&gt;Inject Dependencies&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;todo_no-getters-nor-setters&quot;&gt;&lt;em&gt;(planned)&lt;/em&gt; No Getters Nor Setters&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/posts/lessons-re-learned-5-no-getters-nor-setters&quot;&gt;No Getters Nor Setters&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;todo_own-your-interfaces&quot;&gt;&lt;em&gt;(planned)&lt;/em&gt; Own Your Interfaces&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;todo_only-one-return-type&quot;&gt;&lt;em&gt;(planned)&lt;/em&gt; Only One Return Type&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;todo_avoid-private-methods&quot;&gt;&lt;em&gt;(planned)&lt;/em&gt; Avoid Private Methods&lt;/span&gt;&lt;/li&gt;
@@ -146,5 +146,31 @@
 &lt;p&gt;Applied properly, dependency injection gives us better modularity and helps us abide by the &lt;a href=&quot;https://martinfowler.com/articles/dipInTheWild.html&quot;&gt;dependency inversion principle&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://twitter.com/totheralistair&quot;&gt;Alistair Cockburn&lt;/a&gt;, on a talk named &lt;a href=&quot;https://youtu.be/th4AgBcrEHA&quot;&gt;Hexagone&lt;/a&gt;, suggests that we call this property &lt;em&gt;configurable dependency&lt;/em&gt; (which he attributed to &lt;a href=&quot;https://twitter.com/gerardmes&quot;&gt;Gerard Meszaros&lt;/a&gt;) instead. His rationale is that the name &lt;em&gt;dependency injection&lt;/em&gt; encourages doing it wrong first and then flipping and fixing it.&lt;/p&gt;
 &lt;p&gt;Back in 2008, &lt;a href=&quot;https://twitter.com/mhevery&quot;&gt;Miško Hevery&lt;/a&gt; gave a &lt;a href=&quot;https://www.youtube.com/user/GoogleTechTalks/search?query=The%20Clean%20Code%20Talks%20Misko&quot;&gt;series&lt;/a&gt; of talks at Google. In one in particular, titled &lt;a href=&quot;https://youtu.be/-FRm3VPhseI&quot;&gt;Global State and Singletons&lt;/a&gt;, Miško debunks common misconceptions in the &lt;a href=&quot;https://youtu.be/-FRm3VPhseI?t=1879&quot;&gt;Q&amp;amp;A&lt;/a&gt; section.&lt;/p&gt;
+</content>
+	</entry>
+	<entry>
+		<title>Lessons (re)learned: 5. No Getters Nor Setters</title>
+		<link href="https://gtramontina.com/posts/lessons-re-learned-5-no-getters-nor-setters/"/>
+		<updated>2023-04-10T09:00:00.000Z</updated>
+		<id>https://gtramontina.com/posts/lessons-re-learned-5-no-getters-nor-setters/</id>
+		<content type="html">&lt;h1&gt;No Getters nor Setters&lt;/h1&gt;
+&lt;p&gt;&lt;em&gt;Note: This post is part of the series &lt;a href=&quot;/posts/lessons-re-learned-0&quot;&gt;Lessons (re)learned&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;A lot has been said about the perils of using &lt;em&gt;getters&lt;/em&gt; and &lt;em&gt;setters&lt;/em&gt;—also known as &lt;em&gt;accessors&lt;/em&gt; and &lt;em&gt;mutators&lt;/em&gt;—in object-oriented software. To cite a couple, &lt;a href=&quot;https://holub.com/&quot;&gt;Allen Holub&lt;/a&gt;, back in 2003, published &amp;quot;&lt;a href=&quot;https://www.infoworld.com/article/2073723/why-getter-and-setter-methods-are-evil.html&quot;&gt;Why getter and setter methods are evil&lt;/a&gt;&amp;quot; and &lt;a href=&quot;https://www.yegor256.com/&quot;&gt;Yegor Bugayenko&lt;/a&gt;, a decade later, wrote &amp;quot;&lt;a href=&quot;https://www.yegor256.com/2014/09/16/getters-and-setters-are-evil.html&quot;&gt;Getters/Setters. Evil. Period.&lt;/a&gt;&amp;quot;. However, a lot more has been said—or rather, suggested—encouraging the use of such (anti?)patterns. So much so that I&#39;ll refrain from linking here. Suffice to say that pretty much any OO example out there makes use if them.&lt;/p&gt;
+&lt;p&gt;The terms coupling, cohesion, encapsulation, information hiding, modularity all come up when discussing this topic. And there&#39;s a good reason for that: together, they enable malleability e evolvability to software systems. In other words, they help us build software that can be easily changed.&lt;/p&gt;
+&lt;p&gt;Majority, if not all, cases can be categorized as either a &lt;em&gt;command&lt;/em&gt; or a &lt;em&gt;query&lt;/em&gt;—also known as &lt;a href=&quot;https://martinfowler.com/bliki/CommandQuerySeparation.html&quot;&gt;Command-Query Separation (CQS)&lt;/a&gt;. This means that we&#39;re either probing the system for information or changing the system state.&lt;/p&gt;
+&lt;p&gt;In the conversation &amp;quot;&lt;a href=&quot;https://www.youtube.com/watch?v=hd0v72pD1MI&quot;&gt;Understanding Coupling and Cohesion&lt;/a&gt;&amp;quot;, led by &lt;a href=&quot;https://twitter.com/jbrains&quot;&gt;J. B. Rainsberger&lt;/a&gt;, the meaning of coupling and cohesion is explored. &lt;a href=&quot;https://dhemery.com&quot;&gt;Dale Emery&lt;/a&gt; points out something interesting:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;To couple means to fasten together. And to cohere means to stick together. (…) it seems to me that the difference is in whether the forces that bind the things are inherent in the things themselves or imposed externally.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I found this to be quite insightful. They also reference &lt;a href=&quot;https://vanderburg.org/&quot;&gt;Glenn Vanderburg&lt;/a&gt;&#39;s &amp;quot;&lt;a href=&quot;https://vanderburg.org/blog/2011/01/31/cohesion.html&quot;&gt;Cohesion&lt;/a&gt;&amp;quot; blog post, in which the author explains &lt;em&gt;cohesion&lt;/em&gt; by contrasting it with &lt;em&gt;adhesion&lt;/em&gt;, a more common term.&lt;/p&gt;
+&lt;p&gt;Also, in this same conversation, the late &lt;a href=&quot;https://en.wikipedia.org/wiki/Jim_Weirich&quot;&gt;Jim Weirich&lt;/a&gt; brings up &lt;a href=&quot;https://skillsmatter.com/skillscasts/896-jim-weirich-grand-unified-theory-of-software&quot;&gt;connascence&lt;/a&gt;: a way of categorizing the different types of coupling. A more comprehensive collection of resources about it can be found at &lt;a href=&quot;https://connascence.io/pages/about.html&quot;&gt;connascence.io&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This seems to be one of those habits that form real quick—especially when the great majority of examples out there make use of it—and can be hard to unlearn. So, I try to tame it. Whenever I feel like writing a getter or setter, I stop and ask myself:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Why do I want to get this &lt;em&gt;data&lt;/em&gt; from this &lt;em&gt;object&lt;/em&gt;?&lt;/li&gt;
+&lt;li&gt;What do I want to &lt;em&gt;do&lt;/em&gt; with this &lt;em&gt;data&lt;/em&gt;?&lt;/li&gt;
+&lt;li&gt;Why do I want to set this &lt;em&gt;data&lt;/em&gt; in this &lt;em&gt;object&lt;/em&gt;?&lt;/li&gt;
+&lt;li&gt;Where do I want to keep this &lt;em&gt;behavior&lt;/em&gt;?&lt;/li&gt;
+&lt;li&gt;Given the &lt;em&gt;object&lt;/em&gt; already holds the &lt;em&gt;data&lt;/em&gt;, can I &lt;a href=&quot;https://web.archive.org/web/20070819141746/http://www.pragmaticprogrammer.com/ppllc/papers/1998_05.html&quot;&gt;tell&lt;/a&gt; it to &lt;em&gt;do&lt;/em&gt; something instead?&lt;/li&gt;
+&lt;/ul&gt;
 </content>
 	</entry></feed>
