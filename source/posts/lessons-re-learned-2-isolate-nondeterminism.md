@@ -10,7 +10,7 @@ layout: post.html
 
 _Note: This post is part of the series [Lessons (re)learned](/posts/lessons-re-learned-0)._
 
-Every system has sources of nondeterminism. We need to identify them and push them off to the boundaries, leveraging [dependency injection](/posts/lessons-re-learned-0/#todo_inject-dependencies) in order to make use of them. Not controlling these sources of nondeterminism usually leads to test flakiness. _Time_ and _random_ are two very common sources of nondeterminism. In fact, any language-provided static functions are likely to be nondeterministic. [Third-party integrations](/posts/lessons-re-learned-3-reduced-integration-surface) are definitely sources of nondeterminism.
+Every system has sources of nondeterminism. We need to identify them and push them off to the boundaries, leveraging [dependency injection](/posts/lessons-re-learned-4-inject-dependencies) in order to make use of them. Not controlling these sources of nondeterminism usually leads to test flakiness. _Time_ and _random_ are two very common sources of nondeterminism. In fact, any language-provided static functions are likely to be nondeterministic. [Third-party integrations](/posts/lessons-re-learned-3-reduced-integration-surface) are definitely sources of nondeterminism.
 
 [Dave Farley](https://www.davefarley.net/), from [Continuous Delivery](https://www.continuousdelivery.com/), released a really nice video titled "[BDD Testing Time](https://www.youtube.com/watch?v=Xa6UEHyEyzQ)". The technique demontrated there can be applied to other sources of nondeterminism as well.
 
