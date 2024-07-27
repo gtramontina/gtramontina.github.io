@@ -7,7 +7,7 @@ layout: base.html
 
 Hello there! Welcome to my little corner of this vast world wide web.
 
-My name is <span lang="pt-BR">Guilherme Johansson Tramontina</span>. I develop software for a living. I'm currently working as a software developer at [InDebted](https://indebted.co), in the beautiful [Sydney, Australia](https://en.wikipedia.org/wiki/Sydney).
+My name is <span lang="pt-BR">Guilherme Johansson Tramontina</span>. I develop software for a living. I'm currently working as a software developer at [Slice](https://www.slicegroup.co/), in the beautiful [Sydney, Australia](https://en.wikipedia.org/wiki/Sydney).
 
 ## Social Media
 
