@@ -1,4 +1,4 @@
-docker-run := docker-compose run --rm --service-ports
+docker-run := docker compose run --rm --service-ports
 
 dev:
 	@$(docker-run) server
