@@ -1,15 +1,16 @@
 /* -- baseline -- */
 
 :root {
+	color-scheme: light dark;
 	--font-size-default: 14px;
 	--font-size-small: calc(var(--font-size-default) * 0.8);
 	--font-size-large: calc(var(--font-size-default) * 2.5);
 	--font-family-serif: "Playfair Display", serif;
 	--font-family-sans-serif: "Lato", sans-serif;
 	--font-family-monospaced: "JetBrains Mono", monospace;
-	--color-background: #FFFFFF;
-	--color-foreground: #333333;
-	--color-link: #4C74B9;
+	--color-background: light-dark(#FFFFFF, #333333);
+	--color-foreground: light-dark(#333333, #FFFFFF);
+	--color-link: light-dark(#4C74B9, #89b4ff);
 	--spacing-default: 1rem;
 	--spacing-small: 0.5rem;
 	--spacing-large: 1.5rem;
