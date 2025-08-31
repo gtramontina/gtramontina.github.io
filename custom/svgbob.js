@@ -1,6 +1,8 @@
-const exec = require("util").promisify(require("child_process").exec);
+import { promisify } from "node:util";
+import { exec } from "node:child_process";
+const $ = promisify(exec);
 
-module.exports = async (
+export default async (
 	content,
 	{
 		background = "transparent",
@@ -10,9 +12,8 @@ module.exports = async (
 		strokeWidth = 1.25,
 		altText = "",
 		title = "",
-	} = {}
+	} = {},
 ) => {
-
 	const cmd = `cat << "EOF" | ${content}EOF
 svgbob \
 --background "${background}" \
@@ -23,7 +24,7 @@ svgbob \
 | base64`;
 
 	console.log(`Painting image with svgbob: ${cmd}`);
-	const { stdout } = await exec(cmd);
+	const { stdout } = await $(cmd);
 
-	return `<figure><img alt="${altText}" title="${title}" src="data:image/svg+xml;base64,${stdout}"></figure>`
+	return `<figure><img alt="${altText}" title="${title}" src="data:image/svg+xml;base64,${stdout}"></figure>`;
 };

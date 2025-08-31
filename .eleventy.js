@@ -1,7 +1,7 @@
-const custom = require("./custom");
+import custom from "./custom/index.js";
 
-module.exports = function(config) {
-	config.addPassthroughCopy({ "static": "/" });
+export default (config) => {
+	config.addPassthroughCopy({ static: "/" });
 	config.addPairedNunjucksAsyncShortcode("svgbob", custom.svgbob);
 	config.addFilter("dateFormatYYYY_MM_DD", custom.dateFormatYYYY_MM_DD);
 	config.addFilter("dateISO", custom.dateISO);
@@ -19,5 +19,5 @@ module.exports = function(config) {
 		markdownTemplateEngine: "njk",
 		htmlTemplateEngine: "njk",
 		templateFormats: ["html", "njk", "md"],
-	}
+	};
 };
