@@ -30,7 +30,8 @@ Everything I publish here is CC [BY-NC-SA](https://creativecommons.org/licenses/
 What follows is a list of software and resources I used to put this website together. You can find the source code of this website [on GitHub](https://github.com/gtramontina/gtramontina.github.io/).
 
 - [Make](https://www.gnu.org/software/make/)
-- [Docker](https://docker.com/)
+- [Devbox](https://www.jetify.com/devbox/)
+- [Direnv](https://direnv.net/)
 - [11ty](https://www.11ty.dev/)
 - [Hypotes.is](https://hypothes.is/)
 - [SVGBob](https://github.com/ivanceras/svgbob/)
