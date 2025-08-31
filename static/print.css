@@ -18,7 +18,7 @@ hypothesis-adder,
 
 a {
 	text-decoration: none;
-	color: rgb(var(--color-rgb-foreground));
+	color: var(--color-foreground);
 	pointer-events: none;
 }
 
