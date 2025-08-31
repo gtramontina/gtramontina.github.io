@@ -2,6 +2,7 @@
 	"$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.14.0/.schema/devbox.schema.json",
 	"packages": {
 		"nodejs": "24.5.0",
-		"svgbob": "0.7.6"
+		"svgbob": "0.7.6",
+		"biome": "2.1.4"
 	}
 }

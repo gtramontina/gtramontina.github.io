@@ -1,6 +1,54 @@
 {
   "lockfile_version": "1",
   "packages": {
+    "biome@2.1.4": {
+      "last_modified": "2025-08-08T11:17:04Z",
+      "resolved": "github:NixOS/nixpkgs/b069b7c1e2fe1a3a24221428558bf44128d3d5c8#biome",
+      "source": "devbox-search",
+      "version": "2.1.4",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/miqn77gakmq2gz2s7vijlf3lidgs0xkl-biome-2.1.4",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/miqn77gakmq2gz2s7vijlf3lidgs0xkl-biome-2.1.4"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/70wpw95g04ns5ghb3bgvrik1j8204czi-biome-2.1.4",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/70wpw95g04ns5ghb3bgvrik1j8204czi-biome-2.1.4"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/rxf2z3m4nxlwxb1lns2k2q3lh63izkaw-biome-2.1.4",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/rxf2z3m4nxlwxb1lns2k2q3lh63izkaw-biome-2.1.4"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/jm4r8cv2hzjm75pjrvizx2a125x93qvk-biome-2.1.4",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/jm4r8cv2hzjm75pjrvizx2a125x93qvk-biome-2.1.4"
+        }
+      }
+    },
     "github:NixOS/nixpkgs/nixpkgs-unstable": {
       "resolved": "github:NixOS/nixpkgs/a918bb3594dd243c2f8534b3be01b3cb4ed35fd1?lastModified=1756536218&narHash=sha256-ynQxPVN2FIPheUgTFhv01gYLbaiSOS7NgWJPm9LF9D0%3D"
     },

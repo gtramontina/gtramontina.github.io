@@ -9,6 +9,14 @@ build:
 	@DEBUG=* $(11ty)
 .PHONY: build
 
+lint:
+	@biome check
+.PHONY: lint
+
+lint\:fix:
+	@biome check --fix --unsafe
+.PHONY: lint\:fix
+
 clean:
 	@rm -rf public/
 .PHONY: clean
