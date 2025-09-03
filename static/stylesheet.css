@@ -8,9 +8,9 @@
 	--font-family-serif: "Playfair Display", serif;
 	--font-family-sans-serif: "Lato", sans-serif;
 	--font-family-monospaced: "JetBrains Mono", monospace;
-	--color-background: light-dark(#FFFFFF, #333333);
-	--color-foreground: light-dark(#333333, #FFFFFF);
-	--color-link: light-dark(#4C74B9, #89b4ff);
+	--color-background: light-dark(#ffffff, #333333);
+	--color-foreground: light-dark(#333333, #ffffff);
+	--color-link: light-dark(#4c74b9, #89b4ff);
 	--spacing-default: 1rem;
 	--spacing-small: 0.5rem;
 	--spacing-large: 1.5rem;
@@ -130,6 +130,25 @@ figure {
 
 img {
 	max-width: 100%;
+}
+
+/* -- theme switcher -- */
+
+#theme-switcher {
+	appearance: none;
+	border: none;
+	background: transparent;
+	padding: var(--spacing-small);
+
+	:root:has(& > option[value="light"]:checked),
+	:root[data-theme="light"] {
+		color-scheme: light;
+	}
+
+	:root:has(& > option[value="dark"]:checked),
+	:root[data-theme="dark"] {
+		color-scheme: dark;
+	}
 }
 
 /* -- skip to content -- */

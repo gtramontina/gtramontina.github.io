@@ -1,0 +1,11 @@
+<script>
+(() => {
+	const theme = localStorage.getItem('theme');
+	theme && (document.documentElement.dataset.theme = theme);
+	document.addEventListener('DOMContentLoaded', () => {
+		const switcher = document.getElementById('theme-switcher');
+		switcher.value = theme ?? "";
+		switcher.addEventListener('change', () => localStorage.setItem('theme', switcher.value));
+	});
+})();
+</script>

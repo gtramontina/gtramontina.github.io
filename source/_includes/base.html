@@ -4,6 +4,7 @@
 	<title>{{ site.title }}{% if title %} &bull; {{ title }}{% endif %}</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	{% include "theme-switcher.html" %}
 	{% if tags | includes("post") %}
 	{% include "post-seo.html" %}
 	{% else %}
@@ -40,6 +41,11 @@
 				<a href="/about" rel="about" title="About">About</a>
 				<a href="/feed.atom" rel="alternate" title="RSS" type="application/atom+xml">RSS</a>
 			</nav>
+			<select id="theme-switcher" title="Theme">
+				<option value="" title="System">💻</option>
+				<option value="light" title="Light">☀</option>
+				<option value="dark" title="Dark">☾</option>
+			</select>
 		</div>
 	</header>
 
