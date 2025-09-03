@@ -34,10 +34,12 @@ a {
 	font-family: var(--font-family-monospaced);
 	font-size: var(--font-size-small);
 	text-decoration: none;
+	overflow-wrap: break-word;
 }
 
 p {
 	overflow-wrap: break-word;
+	text-align: initial;
 }
 
 ul,
