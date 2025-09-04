@@ -26,6 +26,16 @@
 	}
 }
 
+.print-only {
+	display: none;
+}
+
+@media print {
+	.print-only {
+		display: initial;
+	}
+}
+
 * {
 	box-sizing: border-box;
 }

@@ -1,9 +1,23 @@
 :root {
 	--max-width: 100%;
+	--font-size-xsmall: calc(var(--font-size-default) * 0.6);
 }
 
 @page {
+	size: A4;
 	margin: 2cm;
+
+	@top-right {
+		content: "gtramontina.com";
+		font-family: var(--font-family-monospaced);
+		font-size: var(--font-size-small);
+	}
+
+	@bottom-center {
+		content: counter(page);
+		font-family: var(--font-family-monospaced);
+		font-size: var(--font-size-small);
+	}
 }
 
 #site-header,
@@ -27,14 +41,31 @@ a {
 	column-gap: 1cm;
 	column-fill: balance;
 	padding: 0;
+	counter-reset: links;
+
+	a[href]::after {
+		counter-increment: links;
+		content: "[" counter(links) "]";
+		vertical-align: super;
+		font-family: var(--font-family-monospaced);
+		font-size: var(--font-size-xsmall);
+	}
 }
 
-#site-content a[href]::after {
-	content: " (" attr(href) ")";
+#print-links {
+	column-gap: 1cm;
+	column-fill: balance;
 	font-family: var(--font-family-monospaced);
-	font-size: var(--font-size-small);
-	text-decoration: none;
+	font-size: var(--font-size-xsmall);
 	overflow-wrap: break-word;
+	border-top: 0.5px solid rgb(from var(--color-foreground) r g b / 20%);
+	margin-top: 0.5cm;
+	padding-top: 0.5cm;
+
+	&::before {
+		content: "Links:";
+		font-weight: bold;
+	}
 }
 
 p {

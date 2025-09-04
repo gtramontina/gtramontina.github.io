@@ -1,0 +1,11 @@
+<ol class="print-only" id="print-links"></ol>
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		window["print-links"].innerHTML = Array.from(
+			window['site-content'].querySelectorAll('a:not([rel="edit-post"])'),
+		)
+			.map((a) => a.href)
+			.map((link) => `<li>${link}</li>`)
+			.join("");
+	});
+</script>
