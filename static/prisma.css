@@ -1,0 +1,24 @@
+pre[class*="language-"] {
+	overflow: auto;
+	border-radius: 0.3em;
+	padding: var(--spacing-small);
+	border: 1px solid oklch(from var(--color-foreground) l c h / 5%);
+}
+
+code[class^="language-"] {
+	.token {
+		&.comment {
+			opacity: 0.25;
+			font-style: italic;
+		}
+		&.punctuation,
+		&.string,
+		&.operator {
+			opacity: 0.5;
+		}
+
+		&.keyword {
+			font-weight: bold;
+		}
+	}
+}

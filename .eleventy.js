@@ -1,3 +1,5 @@
+import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
+import mdAbbr from "markdown-it-abbr";
 import custom from "./custom/index.js";
 
 export default (config) => {
@@ -12,6 +14,9 @@ export default (config) => {
 	config.addFilter("collectionLive", custom.collectionLive);
 	config.addFilter("collectionDraft", custom.collectionDraft);
 	config.addFilter("collectionNotDraft", custom.collectionNotDraft);
+
+	config.amendLibrary("md", (md) => md.use(mdAbbr));
+	config.addPlugin(syntaxHighlight);
 
 	return {
 		dir: { input: "source", output: "public" },
